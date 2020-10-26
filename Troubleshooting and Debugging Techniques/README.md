@@ -364,7 +364,229 @@ The most obvious one is `closing any applications we don't need at the moment`. 
 
 We'll look into what causes `slow scripts`, `slow computers`, or `slow systems`. `We'll give you the tools to help you identify the most common causes of slowness, and apply solutions to improve the overall performance.`
 
+### Why Is My Computer Slow
+
+If we've closed everything that wasn't needed and the computer is still slow, we need to look into other possible explanations. What if the hardware we're using just isn't good enough for the applications we're trying to run on it? In cases like these, will have to upgrade the underlying hardware. But to make a difference in the resulting performance, we need to make sure that we're actually improving the bottleneck and not just wasting our money on new hardware that will go unused. So how can we tell which piece of hardware needs to be changed? We need to monitor the usage of our resources to know which of them as being exhausted. This means that it's being used completely and programs are getting blocked by not having access to more of it. Is it the CPU, the memory, the disk IO, the network connection, the graphics card? To find out, we use the tools available in our operating system, monitor the usage of each resource, and then work out which one is blocking our programs for running faster. We've already talked about using top on Linux systems. This tool lets us see which currently running processes are using the most CPU time. If we start by memory, which ones are using the most memory. It also shows a bunch of other load information related to the current state of the computer, like how many processes are running and how the CPU time or memory is being used. We also called out in earlier videos a couple of other programs like iotop and iftop. They can help us see which processes are currently using the most disk IO usage or the most network bandwidth. On MacOS, the OS ships with a tool called Activity Monitor which lets us see what's using the most CPU, memory, energy, disk, or network. On Windows, there's a couple of OS tools called Resource Monitor and Performance Monitor which also let us analyze what's going on with the different resources on the computer including CPU, memory, disk and network.
+
 ![gif][gif-slowness]
+
+Of course, not all performance problems are solved by closing applications are getting better hardware. Sometimes, we need to figure out what the software is doing wrong and where it's spending most of its time to understand how to make it run faster. We need to really study each problem to get to the root cause of the slowness.
+
+### How Computer Use Resources
+
+When an application is accessing some data, the time spent retrieving that data will depend on where it's located. If it's a variable that's currently being used in a function, the data will be in the CPU's internal memory, and our program will retrieve it really fast. If the data is related to a running program but maybe not the currently executing function, it will likely be in RAM, and our program will still get to a pretty fast. If the data is in a file, our program will need to read it from disk, which is much slower than reading it from RAM, and worse than reading from disk, is reading information from over the network. In this case, we have a lower transmission speed, and we also need to establish the connection to the other endpoint to make the transmission possible, which adds to the total time needed to get to the data. So if you have a process that requires repeatedly reading data over the network, you might want to figure out if you can read it once stored on disk, and then read it from disk afterwards. Or similarly, if you repeatedly reading files from disk, you might see if you can put the same information directly into the process memory and avoid loading it from disk every time. In other words, you want to consider if you can create a cache, a cache stores data in a form that's faster to access than its original form. There's a ton of examples of caches in IT. A web proxy is a form of cash. It stores websites, images, or videos that are accessed often by users behind the proxy. So they don't need to be downloaded from the Internet every time. DNS services usually implement a local cache for the websites they resolve. So they don't need to query from the Internet every time someone asks for their IP address. The operating system also takes care of some caching for us. It tries to keep as much information as possible in RAM so that we can access it fast. This includes the contents of files or libraries that are accessed often, even if they aren't in use right now. We say that these contents are cached in memory. We call that that if the data is part of a program that's currently running, it will be in RAM. But RAM is limited. If you run enough programs at the same time, you'll fill it up and run out of space. What happens when you run out of RAM? At first, the OS will just remove from RAM anything that's cached, but not strictly necessary. If there's still not enough RAM after that, the operating system will put the parts of the memory that aren't currently in use onto the hard drive in a space called swap. Reading and writing from disk is much slower than reading and writing from RAM. So when the swapped out memory is requested by an application, it will take a while to load it back. The swapping implementation varies across the different operating systems, but the concept is always the same. The information that's not needed right now is removed from RAM and put onto the disk, while the information that's needed now is put into RAM. This is normal operation, and most of the time, we don't notice it. But if the available memory is significantly less than what the running applications need, the OS will have to keep swapping out the data that's not in use right now to move the data currently in use to RAM, and as we called out, our computer can switch between applications very quickly, which means that the data currently in use can also change very quickly. The computer will start spending a lot of time writing to disc to make some space in RAM and then reading from disk to put other things in RAM. This can be super slow. So what do you do if you find that your machine is slow because it's spending a lot of time swapping?
+
+Here are basically three possible reasons for this. We've already talked about two of them. First, if there are too many open applications and some can be closed, close the ones that aren't needed. Or if the available memory is just too small for the amount that computer is using, add more RAM to the computer. The third reason is that one of the running programs may have a memory leak, causing it to take all the available memory. A memory leak means that memory which is no longer needed is not getting released. We'll talk a bunch more about memory leaks later in the course. For now, let's just say that if a program is using a lot of memory and this stops when you restart the program, it's probably because of a memory leak.
+
+### Possible Cause Of Slowness
+
+... We first look for the simplest explanations that are the easiest to check. And after eliminating a possible root cause, we go back to the problem and come up with the next possible cause to check. So when trying to figure out what's making a computer slow, `the first step is to look into when the computer is slow`. If it's `slow when starting up`, it's probably a `sign that there are too many applications configured to start on boot.` In this case, fixing the problem is just a question of going through the list of programs that start `automatically and disabling any that aren't really needed`.
+
+If instead the computer becomes sluggish after days of running just fine, and the problem goes away with a reboot, it means that there's a program that's keeping some state while running that's causing the computer to slow down. For example, this can happen if a program stores some data in memory and the data keeps growing over time, without deleting old values. If a program like this stays running for many days, the data might grow so much that reading it becomes slow and the computer runs out of RAM. This is almost certainly a bug in the program. And the ideal solution for a problem like this is to change the code so that it frees up some of the memory used. If you don't have access to the code, another option is to schedule a regular restart to mitigate both the slow program and your computer running out of RAM. A similar problem that can trigger after a long time using an application, and that isn't solved by a reboot, is that the files that an application is handling have grown too large. So when the program needs to read those files, it gets really slow. Again, this generally points to a bug in the way the program was designed because it didn't expect the files to grow so large. The best solution in this case is to fix the bug. But what can you do if you can't modify the code of the program? You can try to reduce the size of the files involved. If the file is a log file, you can use a program like `logrotate` to do this for you. For other formats, you might need to write your own tool to rotate the contents. Another data point that we can use to diagnose what's going on is whether this happens for all users of the application or just a subset of them. If only some users are affected, we'll want to know if there's something that's configured differently on those computers that might be triggering the slowness. For example, many operating systems include a feature that tracks the files in our computer so it's easy and fast to search for them. This feature can be really useful when looking for something on a computer, but can get in the way of everyday use if we have tons of files and not the most powerful hardware. We've called out before that reading from the network is notably slower than reading from disk. It's common for computers in an office network to use a file system that's mounted over the network so they can share files across computers. This normally works just fine, but can make some programs really slow if they're doing a lot of reads and writes on this network-mounted file system. To fix this, we'll need to make sure that the directory used by the program to read and write most of its data is a directory local to the computer.
+
+Hardware failures can also cause our computer to become slow. If your hard drive has errors, the computer might still be able to apply error correction to get the data that it needs, but it will affect the overall performance. And once a hard drive starts having errors, it's only a matter of time until they're bad enough that data starts getting lost, so it's worth keeping an eye out for them. To do this, we can use some of the OS utilities that diagnose problems on hard drives or on RAM, and check if there's anything that could be causing problems.
+
+Yet another source of slowness is malicious software. Of course, we always want to keep your computer clean of any malicious software, but we can feel the effects of malicious software even if they aren't installed. For example, you might have come across a website that includes scripts, either in the website's content or the ads displayed, that use our processor to mine for crypto currency. Malicious browser extensions also fall into this category.
+
+### Slow Web Server
+
+A user has alerted us that one of the web servers in our company is being slow, and we need to figure out what's going on. Let's start by navigating to the website and loading the page.
+
+Okay. We see that the page loads. It seems to be a little slow but it's hard to measure this on our own.
+
+Let's use a tool called ab which stands for Apache Benchmark tool to figure out how slow it is. We'll run
+
+```sh
+> ab -n 500 site.example.com
+```
+
+to get the average timing of 500 requests, and then pass our site.example.com for the measurement. This tool is super useful for checking if a website is behaving as expected or not.
+
+It will make a bunch of requests and summarize the results once it's done. Here, were asking for it to do 500 requests to our website. There are a lot more options that we could pass like how many requests we want the program to do at the same time, or if the test to finish after timeout, even if not all requests completed, we're making 500 requests so that we can get an average of how long things are taking. Once the test finishes, we can look at the data and decide if it's actually slow or not. All right. The tool has finished running the 500 requests.
+`We see that the mean time per requests was a 155 milliseconds. While this is not a super huge number, it's definitely more than what we'd expect for such a simple website.`
+
+It seems that something is going on with the web server and we need to investigate further. Let's connect to the web server and check out what's going on.
+
+We'll start by looking at the output of top and see if there's anything suspicious there.
+
+```sh
+> top
+```
+
+We see that there's a bunch of ffmpeg processes running, which are basically using all the available CPU. See those `load numbers`? `Thirty is definitely not normal`. Remember that the load average on Linux shows how much time the processor is busy at a given minute with one meaning it was busy for the whole minute. This computer has two processors. So any number above two means that it's overloaded. During each minute, there were more processes waiting for processor time than the processor had to give. This ffmpeg program is used for video trans-coding which means converting files from one video format to another. This is a CPU intensive process and seems like the likely culprit for our server being overloaded. So what can we do?
+
+One thing we can try is to change the processes priorities so that the web server takes precedence. The process priorities in Linux are so that the `lower the number, the higher the priority`. Typical numbers go from 0 to 19. `By default, processes start with a priority of zero`. But we can change that using the `nice` and `renice` commands. We use `nice` for `starting a process with a different priority` and `renice` for `changing the priority of a process that's already running`.
+
+Okay. Let's exit top with `q` and change the priorities. We want to run `renice` for all the ffmpeg processes that are running right now. We could do this one by one. But it would be manual, error-prone, and super boring. Instead, we can use a quick line of shell script to do this for us. For that, we'll use the `pidof` command that receives the `process name` and returns `all the process IDs` that have that name. We'll iterate over the output of the `pidof` command with a `for loop` and then call `renice` for each of the process IDs. `renice` takes the new priority as the first argument, and the process ID to change as the second one. In our case, we'll want the `lowest possible priority` which is `19`. So we'll call
+
+```sh
+for pid in $(pidof ffmpeg); do renice 19 $pid; done.
+```
+
+All right. We see that the priorities for those processes were updated.
+
+Let's run our benchmarking software again and check out if it made any difference.
+
+```sh
+> ab -n 500 site.example.com
+```
+
+Okay. It's running once again. We'll need to wait until the 500 requests are done and check out the new meantime per request value. This time, the  meantime is 153 milliseconds  . It doesn't seem like our `renice` helped. Apparently, `the OS is still giving these ffmpeg processes way too much processor time`.
+
+Our website is still slow. What else can we do?
+
+These `trans-coding` processes are `CPU intensive`, and running them in `parallel is overloading the computer`. So one thing we could do is, modify whatever is triggering them to run them one after the other instead of all at the same time. To do that, we'll need to find out how these processes got started. First, we'll look at the output of the ps command to get some more information about the processes. We'll call `ps ax` which shows us all the running processes on the computer, and we'll connect the output of the command to less, to be able to scroll through it.
+
+```sh
+> ps ax | less
+```
+
+Now we'll look for the ffmpeg process using slash which is the search key when using less.
+
+Okay. We see that there are a bunch of ffmpeg processes that are converting videos from the webm format to the mp4 format. `We don't know where these videos are on the hard drive`. We can try using the locate command to see if we can find them. We'll first exit the less interface with queue and then call
+
+```sh
+> locate static/001.webm.
+```
+
+We see that the static directory is located in the server deploy videos directory. Let's change into that directory and see what we find.
+
+There's a bunch of files here. We could check them all one-by-one to see if one of them contained a call to ffmpeg. But that sounds like a lot of manual work. Instead, let's use grep to check if any of these files contains a call to ffmpeg.
+
+So we see that there's a couple of mentions in the `deployed.sh` file. Let's take a look at that one. Since we're connecting to the server remotely, we can't open the file using a graphical editor. We need to use a command line editor instead. We'll use vim in this case.
+
+We see that this script is starting the ffmpeg processes in parallel using a tool called `Daemonize` that runs `each program separately as if it were a daemon`. This might be okay if we only need to convert a couple of videos but launching one separate process for each of the videos in the static directory is overloading our server. So we want to change this to run only one video conversion process at a time. We'll do that by simply `deleting the daemonized part and keeping the part that calls ffmpeg`, then save and exit.
+
+All right. We've modified the file. But this `won't change the processes that are already running`. We want to `stop these processes but not cancel them completely`, as doing so would mean that the videos being converted right now will be incomplete. So we'll use the `killall` command with the `-STOP` flag which sends a stop signal but doesn't kill the processes completely.
+
+```sh
+> killall -STOP ffmpeg
+
+We `now want to run these processes one at a time`. How can we do that? We could send the `CONT` signal to one of them, wait till it is done, and then send it to the next one. But that is a lot of manual work. Can be automate it? Yes. But it is a little tricky. So pay close attention. We can iterate through the list of processes using the same for loop with the pit of command that we used earlier.
+
+```sh
+> for pid in $(pidof ffmpeg); do while kill -CONT $pid; do sleep 1; done; done
+```
+
+Inside the for loop, we want to send the cont signal and then wait until the process is done. Unfortunately, there's no command to wait until the process finishes. But we can create a while loop that sends the cont signal to the process. This will succeed as long as the process exists, and fails once the process goes away. Inside this while loop, we'll simply add a call to sleep one, to wait one second until the next check.
+
+Okay. Now our server is running one ffmpeg process at a time. Let's turn our benchmark once more.
+
+The mean time is now `33 milliseconds`. That's much lower than before. We've managed to get our web server to reply promptly to the request again. We've mentioned a few different approaches that we can take when we can't fix the code like `renicing` the processes, or running them one after the other when that doesn't help.
+
+### Monitoring Tools
+
+**Check out the following links for more information:**
+
+1. `Visit`: <https://docs.microsoft.com/en-us/sysinternals/downloads/procmon>
+1. `Visit`: <http://www.brendangregg.com/linuxperf.html>
+1. `Visit`: <http://brendangregg.com/usemethod.html>
+1. `Visit`: [Activity Monitor in Mac](https://support.apple.com/guide/activity-monitor/welcome/mac)
+1. `Visit`: [Performance Monitor on Windows](https://www.windowscentral.com/how-use-performance-monitor-windows-10)
+1. `Visit`: <https://www.digitalcitizen.life/how-use-resource-monitor-windows-7>
+1. `Visit`: <https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer>
+1. `Visit`: <https://en.wikipedia.org/wiki/Cache_(computing)>
+1. `Visit`: <https://www.reddit.com/r/linux/comments/d7hx2c/why_nice_levels_are_a_placebo_and_have_been_for_a/>
+
+#### Another Example of ab (Apache Benchmark) Test
+
+```sh
+> man ab
+> ab -n 100 -c 10 https://www.apache.org/ # -c 10 means at time receive 10 request.
+
+This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.apache.org (be patient).....done
+
+
+Server Software:        Apache
+Server Hostname:        www.apache.org
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,2048,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        www.apache.org
+
+Document Path:          /
+Document Length:        85196 bytes
+
+Concurrency Level:      10
+Time taken for tests:   35.321 seconds
+Complete requests:      100
+Failed requests:        0
+Total transferred:      8552400 bytes
+HTML transferred:       8519600 bytes
+Requests per second:    2.83 [#/sec] (mean)
+Time per request:       3532.134 [ms] (mean)
+Time per request:       353.213 [ms] (mean, across all concurrent requests)
+Transfer rate:          236.46 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:      597  977 622.8    818    3897
+Processing:  1127 2350 1748.2   1816   12890
+Waiting:      192  276 151.5    229    1054
+Total:       1800 3327 1964.7   2670   13721
+
+Percentage of the requests served within a certain time (ms)
+  50%   2670
+  66%   3186
+  75%   3755
+  80%   3892
+  90%   5735
+  95%   7080
+  98%  11351
+  99%  13721
+ 100%  13721 (longest request)
+```
+
+### Practice Quiz: Understanding Slowness
+
+**Question 1**:
+
+Which of the following will an application spend the longest time retrieving data from?
+
+- [ ] CPU L2 cache
+- [ ] RAM
+- [ ] Disk
+- [X] The network
+
+**Question 2**:
+
+Which tool can you use to verify reports of 'slowness' for web pages served by a web server you manage?
+
+- [ ] The top tool
+- [X] The ab tool
+- [ ] The nice tool
+- [ ] The pidof tool
+
+**Question 3**:
+
+If our computer running Microsoft Windows is running slow, what performance monitoring tools can we use to analyze our system resource usage to identify the bottleneck? (Check all that apply)
+
+- [X] Performance Monitor
+- [X] Resource Monitor
+- [ ] Activity Monitor
+- [ ] top
+
+**Question 4**:
+
+Which of the following programs is likely to run faster and more efficiently, with the least slowdown?
+
+- [ ] A program with a cache stored on a hard drive
+- [X] A program small enough to fit in RAM
+- [ ] A program that reads files from an optical disc
+- [ ] A program that retrieves most of its data from the Internet
+
+**Question 5**:
+
+What might cause a single application to slow down an entire system? (Check all that apply)
+
+- [X] A memory leak
+- [ ] The application relies on a slow network connection
+- [X] Handling files that have grown too large
+- [ ] Hardware faults
 
 <!-- urls and file paths -->
 
@@ -375,4 +597,4 @@ We'll look into what causes `slow scripts`, `slow computers`, or `slow systems`.
 [idnw]: ./images/it-doesnot-work.png
 [binary-search]: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F1600%2F1*1nOsAVYmvY48FgMVLNIZ5Q.jpeg&f=1&nofb=1
 [invalid-data-search]: ./images/binary-search-error-find-in-files.png
-[gif-slowness]: https://photos.app.goo.gl/MzrfVMtXu6GC9nED9
+[gif-slowness]: ./images/gmail.gif
