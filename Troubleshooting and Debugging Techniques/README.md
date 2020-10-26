@@ -2,7 +2,7 @@
 
 Google IT Automation with Python Course#4
 
-## Welcome To The Course
+## Module 1: Welcome To The Course
 
 Welcome to the course!
 In this course, you’ll learn how to debug and troubleshoot a wide range of technical problems, both in your code and in someone elses code.
@@ -291,7 +291,80 @@ print(next_date("2021-01-01"))  # Should return 2022-01-01
 print(next_date("2020-02-29"))  # Should return 2024-02-29
 ```
 
+### Binary Search
 
+Binary Search: Search a sorted array by repeatedly dividing the search interval in half. Begin with an interval covering the whole array. If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half. Otherwise narrow it to the upper half. Repeatedly check until the value is found or the interval is empty.
+
+![Binary Search GeeksforGeeks Image][binary-search]
+
+### Finding Invalid Data using Binary Search
+
+![Finding Invalid Data][invalid-data-search]
+
+### Note: Quiz solution you find in examples `code files`
+
+### QwikLabs: Debugging Python Scripts
+
+```
+> sdt-inc:~ nahid$ chmod 600 ~/Downloads/qwikLABS-L2382-20735766.pem
+
+> sdt-inc:~ nahid$ ssh -i ~/Downloads/qwikLABS-L2382-20735766.pem student-03-9d3e97cfa775@35.184.0.217
+load pubkey "/home/nahid/Downloads/qwikLABS-L2382-20735766.pem": invalid format
+The authenticity of host '35.184.0.217 (35.184.0.217)' can't be established.
+....................
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '35.184.0.217' (ECDSA) to the list of known hosts.
+Linux linux-instance 4.9.0-13-amd64 #1 SMP Debian 4.9.228-1 (2020-07-05) x86_64
+..................
+
+> student-03-9d3e97cfa775@linux-instance:~$ ls
+scripts
+
+> student-03-9d3e97cfa775@linux-instance:~$ cd scripts/
+
+> student-03-9d3e97cfa775@linux-instance:~/scripts$ ls
+greetings.py
+
+> student-03-9d3e97cfa775@linux-instance:~/scripts$ cat greetings.py
+#!/usr/bin/env python3
+
+import random
+
+def greeting():
+  name = input("Hello!, What's your name?")
+  number = random.randint(1,101)
+  print("hello " + name + ", your random number is " + number)
+
+greeting()
+
+> student-03-9d3e97cfa775@linux-instance:~/scripts$ sudo chmod 777 greetings.py
+
+> student-03-9d3e97cfa775@linux-instance:~/scripts$ ./greetings.py
+Hello!, What's your name?nahid
+Traceback (most recent call last):
+  File "./greetings.py", line 10, in <module>
+    greeting()
+  File "./greetings.py", line 8, in greeting
+    print("hello " + name + ", your random number is " + number)
+TypeError: Can't convert 'int' object to str implicitly
+
+> student-03-9d3e97cfa775@linux-instance:~/scripts$ vim greetings.py
+
+> student-03-9d3e97cfa775@linux-instance:~/scripts$ ./greetings.py
+Hello!, What's your name? nahid
+hello  nahid, your random number is 54
+student-03-9d3e97cfa775@linux-instance:~/scripts$
+```
+
+## Module 2: Slowness
+
+A problem that we have to deal with a lot when working in IT, is things being `slow`. This could be our `computer`, our `scripts`, or even `complex systems`. Slow is a relative term. Modern computers are much faster and can do many more things than computers a couple of decades ago. Still, we always want them to be faster and to do more in less time.
+
+The most obvious one is `closing any applications we don't need at the moment`. This works because it helps us `free some of the resources in our computer, like CPU time, RAM, or video memory`. That way the program that we want to run faster will have access to more of these resources. When closing applications that we don't need we might even need to look at `applets`, `plugins`, `extensions`, or other small programs that might seem harmless, as they take some resources to run. On top of that, closing any other elements that take resources, like browser tabs or open files in a document editor, can also help. But this only gets us so far because there's a ton of other reasons why our devices or programs might be slow.
+
+We'll look into what causes `slow scripts`, `slow computers`, or `slow systems`. `We'll give you the tools to help you identify the most common causes of slowness, and apply solutions to improve the overall performance.`
+
+![gif][gif-slowness]
 
 <!-- urls and file paths -->
 
@@ -300,3 +373,6 @@ print(next_date("2020-02-29"))  # Should return 2024-02-29
 [debug-definition]: ./images/debug-definition.png
 [debuggers]: ./images/debuggers.png
 [idnw]: ./images/it-doesnot-work.png
+[binary-search]: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F1600%2F1*1nOsAVYmvY48FgMVLNIZ5Q.jpeg&f=1&nofb=1
+[invalid-data-search]: ./images/binary-search-error-find-in-files.png
+[gif-slowness]: https://photos.app.goo.gl/MzrfVMtXu6GC9nED9
