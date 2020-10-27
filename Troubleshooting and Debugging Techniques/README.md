@@ -588,6 +588,36 @@ What might cause a single application to slow down an entire system? (Check all 
 - [X] Handling files that have grown too large
 - [ ] Hardware faults
 
+### Writing Efficient Code
+
+![Writing Efficient Code][wec]
+
+In your role as an IT specialist or systems' administrator, you'll likely need to write scripts to automate tasks. A piece of code may start as a simple script that does a single thing, but end up growing into a complex program that handles many different tasks, and no matter the size and complexity of our code, we usually want it to perform well.
+
+`One important thing to keep in mind though is that we should always start by writing clear code that does what it should and only try to make it faster if we realize that it's not fast enough.` 
+
+`If it takes you 10 minutes to write a script that will run in five seconds, and 20 minutes to write a script that will do the same but takes three seconds, does it make a difference? It all depends on how often you run the script. If you run it once a day, the two seconds deference definitely won't justify the additional 10 minutes of work. But if you're going to run the same script for the 500 computers on your network, that small difference means it will take 15 less minutes to run the whole script. So overall, you're gaining time.`
+
+`But as a rule, we aim first to write code that's readable, easy to maintain and easy to understand, because that lets us write code with less bugs`. If there's something that's super slow, then yes, it makes sense to fix it, particularly if the script will be executed frequently enough that making it faster will save you more time than the time you spend optimizing it.
+
+There's a bunch of different things to do. The most common ones include storing data that was already calculated to avoid calculating it again using the right data structures for the problem and reorganizing the code so that the computer can stay busy while waiting for information from slow sources like disk or over the network. To know what sources of slowness we need to address, we have to figure out where our code is spending most of its time.
+
+![profiler](./images/profiler.png)
+
+There's a bunch of tools that can help us with that called `profilers`. **`A profiler is a tool that measures the resources that our code is using, giving us a better understanding of what's going on`**. In particular, they help us see how the memory is allocated and how the time spent. Because of how profilers work, they are specific to each programming language. So we would use,
+
+- `gprof` to analyze a `C program`  
+- `c-Profile` module to analyze a `Python program`.
+
+Using tools like these, we can see which functions are called by our program, how many times each function was called and how much time are programs spent on each of them. This way we can find for example, that our program is calling a function more times than we originally intended or that a function that we thought would be fast is actually slow. To fix our code, we'll probably need to restructure it to avoid repeating expensive actions.
+
+### Using the Right Data Structure
+
+![List Definition](images/list-python.png)
+![use-list](images/use-list.png)
+![Dict definition](images/dictionaries.png)
+![use-dict](images/use-dict.png)
+
 <!-- urls and file paths -->
 
 [stackoverflow]: https://stackoverflow.com/search?q=troubleshoot
@@ -598,3 +628,4 @@ What might cause a single application to slow down an entire system? (Check all 
 [binary-search]: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F1600%2F1*1nOsAVYmvY48FgMVLNIZ5Q.jpeg&f=1&nofb=1
 [invalid-data-search]: ./images/binary-search-error-find-in-files.png
 [gif-slowness]: ./images/gmail.gif
+[wec]: ./images/write-efficient-code.png
