@@ -618,6 +618,105 @@ Using tools like these, we can see which functions are called by our program, ho
 ![Dict definition](images/dictionaries.png)
 ![use-dict](images/use-dict.png)
 
+### Expensive Loops
+
+Avoid expensive loops
+
+![Expensive Loop](./images/expensive-loop.png)
+![Make Sure](images/make-sure.png)
+![Loop Break](images/break-loop.png)
+
+### Slow Script with Expensive Loop
+
+First we check how many times our main script send_reminders.py take.
+To check this we run,
+
+**`time` Command**:
+
+```sh
+# First we make send_reminders.py script is executable
+> chmod +x send_reminders.py
+
+# Next run `time` command with send_reminders.py script
+> time ./send_reminders "2020-10-29|Example|example@gmail.com"
+..............
+real 0m0.119s
+user 0m0.099s
+sys 0m0.017s
+```
+
+**Real**: Amount of actual time that it took to execute the command.
+
+**User**: The time spend doing operations in the user space.
+
+**Sys**: The time spend during system level operations.
+
+**`Pprofile3` Test**:
+
+```sh
+> pprofile3 -f callgrind -o profile.out ./send_reminders "2020-10-29|Example|example@gmail.com"
+> ls
+profile.out
+> kcachegrind profile.out
+```
+
+- To know about 'python-profiler' please visit: <https://docs.python.org/3/library/profile.html>
+- To know about `kcachegrind` please visit: <https://kcachegrind.github.io/html/Home.html>
+
+#### Preview KCacheGrind
+
+![kcachegrind](./images/kcachegrind.png)
+
+### Practice Quiz: Slow Code
+
+**Question 1**:
+
+Which of the following is NOT considered an expensive operation?
+
+- [ ] Parsing a file
+- [ ] Downloading data over the network
+- [ ] Going through a list
+- [X] Using a dictionary
+
+**Question 2**:
+
+Which of the following may be the most expensive to carry out in most automation tasks in a script?
+
+- [X] Loops
+- [ ] Lists
+- [ ] Vector
+- [ ] Hash
+
+**Question 3**:
+
+Which of the following statements represents the most sound advice when writing scripts?
+
+- [ ] Aim for every speed advantage you can get in your code
+- [ ] Use expensive operations often
+- [X] Start by writing clear code, then speed it up only if necessary
+- [ ] Use loops as often as possible
+
+**Question 4**:
+
+In Python, what is a data structure that stores multiple pieces of data, in order, which can be changed later?
+
+- [ ] A hash
+- [ ] Dictionaries
+- [X] Lists
+- [ ] Tuples
+
+**Question 5**:
+
+What command, keyword, module, or tool can be used to measure the amount of time it takes for an operation or program to execute? (Check all that apply)
+
+- [X] time
+- [X] kcachegrind
+- [X] cProfile
+- [ ] break
+
+### When Slowness Problems Get Complex
+
+
 <!-- urls and file paths -->
 
 [stackoverflow]: https://stackoverflow.com/search?q=troubleshoot
