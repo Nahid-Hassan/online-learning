@@ -716,6 +716,16 @@ What command, keyword, module, or tool can be used to measure the amount of time
 
 ### When Slowness Problems Get Complex
 
+### More About Complex Slow Systems
+
+We only touched briefly on the ways we can use concurrency to improve our programs. If you're interested in learning more, this article from Real Python has a lot of details on the different ways to use concurrency in Python.
+
+Check out the following links for more information:
+
+Visit: <https://realpython.com/python-concurrency/>
+
+Visit: <https://hackernoon.com/threaded-asynchronous-magic-and-how-to-wield-it-bba9ed602c32>
+
 
 <!-- urls and file paths -->
 
