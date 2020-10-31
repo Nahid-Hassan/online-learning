@@ -281,6 +281,50 @@ While the first value given to `padding` takes care of the top and bottom paddin
 
 Feel free to check out [inherit on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/inherit) for more examples!
 
+### Basic Media Query Intro
+
+**Some Property**:
+
+* Height
+* Weight
+* Pixels
+
+### Adding a Basic Media Query
+
+```html
+<link rel='stylesheet' href='style.css'>
+<link rel='stylesheet' media='screen and (mid-width:500px) href='over500.css'>
+```
+
+`Example`: over500.css
+
+```css
+body {
+  background-color: blue;
+}
+```
+
+This property only work when device pixel size is greater than or equal 500px.
+
+You can add media tag a different way..
+
+![media](static-files/media-query.png)
+
+#### Compare Media Query
+
+When Device Pixels == 500px
+
+![media-query](static-files/compare-css-media-query1.png)
+
+When Device Pixels < 500px
+
+![media-query](static-files/compare-css-media-query2.png)
+
+When Device Pixels >= 5800px
+
+![media-query](static-files/compare-css-media-query3.png)
+
+
 <!-- link/urls and files path -->
 [intro]: https://youtu.be/7DJLa4owtIU
 [bs]: https://www.browserstack.com/
