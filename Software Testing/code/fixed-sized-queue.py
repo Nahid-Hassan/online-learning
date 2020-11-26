@@ -48,3 +48,4 @@ a5 = q.dequeue()
 a6 = q.dequeue()
 
 print(a1, a2, a3, a4, a5, a6)
+# True True False 6 7 None
