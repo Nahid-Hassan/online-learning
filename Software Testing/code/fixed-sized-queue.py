@@ -1,5 +1,6 @@
 import array
 import random
+import time
 
 
 class Queue:
@@ -49,3 +50,9 @@ a6 = q.dequeue()
 
 print(a1, a2, a3, a4, a5, a6)
 # True True False 6 7 None
+
+# print(q.max) #
+# q.enqueue(7)
+# time.sleep(10)
+# if q.dequeue() == 7:
+#     print("Success.")
