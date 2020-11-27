@@ -15,7 +15,15 @@ In this course, we use Python version 3 (or simply Python 3). If you'd like more
     - [Integers and Floats](#integers-and-floats)
     - [Quiz: Integer vs Float](#quiz-integer-vs-float)
     - [Booleans, Comparison Operators, and Logical Operators](#booleans-comparison-operators-and-logical-operators)
-    - [Quiz: Which is denser, Rio or San Francisco?](#quiz-which-is-denser-rio-or-san-francisco)
+    - [Quiz: Which is denser, Rio or San Francisco](#quiz-which-is-denser-rio-or-san-francisco)
+    - [Strings](#strings)
+    - [Quiz: String](#quiz-string)
+    - [Type And Type Conversion](#type-and-type-conversion)
+    - [Quiz: Type and Type Conversion](#quiz-type-and-type-conversion)
+    - [String Methods](#string-methods)
+    - [Quiz: String Methods](#quiz-string-methods)
+    - [Another important string method: `split()`](#another-important-string-method-split)
+    - [Quiz: String Methods Coding Practice](#quiz-string-methods-coding-practice)
 
 ## Why Python Programming
 
@@ -353,7 +361,7 @@ And there are `three` logical operators you need to be familiar with:
 | 5 < 3 `or` 5 == 5  | True  | `or` - Evaluates if at least one of many statements is True |
 | `not` 5 < 3        | True  | `not` - Flips the Bool Value                                |
 
-### Quiz: Which is denser, Rio or San Francisco?
+### Quiz: Which is denser, Rio or San Francisco
 
 Try comparison operators in this quiz! This code calculates the population densities of Rio de Janeiro and San Francisco.
 
@@ -379,6 +387,394 @@ else:
     print(False)
 ```
 
+### Strings
+
+`String`: Data type for immutable ordered sequence of characters(letters, numbers, spaces, and symbols)
+
+Strings in Python are shown as the variable type `str`. You can define a string with either double quotes `"` or single quotes `'`. If the string you are creating actually has one of these two values in it, then you need to be careful to assure your code doesn't give an error.
+
+```py
+>>> my_string = 'this is a string!'
+>>> my_string2 = "this is also a string!!!"
+```
+
+You can also include a `\` in your string to be able to include one of these quotes:
+
+```py
+>>> this_string = 'Simon\'s skateboard is in the garage.'
+>>> print(this_string)
+```
+
+`Simon's skateboard is in the garage.`
+
+If we don't use this, notice we get the following error:
+
+```py
+>>> this_string = 'Simon's skateboard is in the garage.'
+```
+
+```py
+  File "<ipython-input-20-e80562c2a290>", line 1
+    this_string = 'Simon's skateboard is in the garage.'
+                         ^
+SyntaxError: invalid syntax
+```
+
+The color highlighting is also an indication of the error you have in your string in this second case. There are a number of other operations you can use with strings as well. In this video you saw a few:
+
+```py
+>>> first_word = 'Hello'
+>>> second_word = 'There'
+>>> print(first_word + second_word)
+HelloThere
+
+>>> print(first_word + ' ' + second_word)
+Hello There
+
+>>> print(first_word * 5)
+HelloHelloHelloHelloHello
+
+>>> print(len(first_word))
+5
+```
+
+Unlike the other data types you have seen so far, you can also index into strings, but you will see more on this soon! For now, here is a small example. Notice Python uses 0 indexing - we will discuss this later in this lesson in detail.
+
+```py
+>>> first_word[0]
+H
+
+>>> first_word[1]
+e
+```
+
+**The `len()` function**
+
+`len()` is a built-in Python function that returns the length of an object, like a string. The length of a string is the number of characters in the string. This will always be an integer.
+
+There is an example above, but here's another one:
+
+```py
+print(len("ababa") / len("ab"))
+2.5
+```
+
+You know what the data types are for `len("ababa")` and `len("ab")`. Notice the data type of their resulting quotient here.
+
+### Quiz: String
+
+**Quiz: Fix the Quote**:
+
+The line of code in the following quiz will cause a SyntaxError, thanks to the misuse of quotation marks. First run it with Test Run to view the error message. Then resolve the problem so that the quote (from [Henry Ford][8]) is correctly assigned to the variable `ford_quote`.
+
+```py
+# TODO: Fix this string!
+ford_quote = 'Whether you think you can, or you think you can\'t--you\'re right.'
+```
+
+**QUESTION 2 OF 5**:
+
+We’ve already seen that the type of objects will affect how operators work on them. What will be the output of this code?
+
+```py
+coconut_count = "34"
+mango_count = "15"
+tropical_fruit_count = coconut_count + mango_count
+print(tropical_fruit_count)
+```
+
+`Solution`: The correct answer is `3415`, and `tropical_fruit_count is a string`. That’s because even though the characters inside the strings coconut_count and mango_count are numbers, the values of the variable coconut_count and mango_count are strings, and are treated as strings when it comes to the `+` operator being applied.
+
+**Quiz: Write a Server Log Message**:
+
+In this programming quiz, you’re going to use what you’ve learned about strings to write a logging message for a server.
+
+You’ll be provided with example data for a user, the time of their visit and the site they accessed. You should use the variables provided and the techniques you’ve learned to print a log message like this one (with the username, url, and timestamp replaced with values from the appropriate variables):
+
+`Yogesh accessed the site http://petshop.com/pets/reptiles/pythons at 16:20.`
+
+Use the Test Run button to see your results as you work on coding this piece by piece.
+
+```py
+username = "Kinari"
+timestamp = "04:50"
+url = "http://petshop.com/pets/mammals/cats"
+
+# TODO: print a log message using the variables above.
+# The message should have the same format as this one:
+# "Yogesh accessed the site http://petshop.com/pets/reptiles/pythons at 16:20."
+
+output = username + ' accessed the site ' + url + ' at ' + timestamp + '.'
+print(output)
+```
+
+**Quiz: `len()`**:
+
+Use string concatenation and the `len()` function to find the length of a certain movie star's actual full name. Store that length in the `name_length` variable. Don't forget that there are spaces in between the different parts of a name!
+
+```py
+given_name = "William"
+middle_names = "Bradley"
+family_name = "Pitt"
+
+# todo: calculate how long this name is
+name_length = len(given_name + " " + middle_names + " " + family_name)
+
+# Now we check to make sure that the name fits within the driving license character limit
+# Nothing you need to do here
+driving_license_character_limit = 28
+print(name_length <= driving_license_character_limit)
+```
+
+**QUESTION 5 OF 5**:
+
+We've just used the len function to find the length of strings. What does the len function return when we give it the integer 835 instead of a string?
+
+`Solution`: Nice! The error message generated reads: `TypeError`: object of type `'int'` has no `len()`, which alludes to the fact that len only works on a `"sequence (such as a string, bytes, tuple, list, or range)` or a collection `(such as a dictionary, set, or frozen set)`," as per the [Python documentation][9].
+
+### Type And Type Conversion
+
+You have seen four data types so far:
+
+`int`
+
+`float`
+
+`bool`
+
+`string`
+
+You got a quick look at `type()` from an earlier video, and it can be used to check the data type of any variable you are working with.
+
+```py
+>>> print(type(4))
+int
+>>> print(type(3.7))
+float
+>>> print(type('this'))
+str
+>>> print(type(True))
+bool
+```
+
+You saw that you can change variable types to perform different operations. For example,
+
+```py
+"0" + "5"
+```
+
+provides completely different output than
+
+```py
+0 + 5
+```
+
+What do you think the below would provide?
+
+```py
+"0" + 5
+```
+
+How about the code here:
+
+```py
+0 + "5"
+```
+
+Checking your variable types is really important to assure that you are retrieving the results you want when programming.
+
+### Quiz: Type and Type Conversion
+
+**Quiz: Total Sales**:
+
+In this quiz, you’ll need to change the types of the input and output data in order to get the result you want.
+
+Calculate and print the total sales for the week from the data provided. Print out a string of the form `"This week's total sales: xxx"`, where xxx will be the actual total of all the numbers. You’ll need to change the type of the input data in order to calculate that total.
+
+```py
+mon_sales = "121"
+tues_sales = "105"
+wed_sales = "110"
+thurs_sales = "98"
+fri_sales = "95"
+
+#TODO: Print a string with this format: This week's total sales: xxx
+# You will probably need to write some lines of code before the print statement.
+total_sales = int(mon_sales) + int(tues_sales) + int (wed_sales) + int(thurs_sales) + int(fri_sales)
+print("This week\'s total sales: " + str(total_sales))
+```
+
+### String Methods
+
+In this video you were introduced to methods. Methods are like some of the functions you have already seen:
+
+1. `len`("this")
+2. `type`(12)
+3. `print`("Hello world")
+
+These three above are **functions** - notice they use parentheses, and accept one or more **arguments**. Functions will be studied in much more detail in a later lesson!
+
+A `method` in Python behaves similarly to a function. Methods actually are functions that are called using dot notation. For example, `lower()` is a string method that can be used like this, on a string called "sample string": `sample_string.lower()`.
+
+Methods are specific to the data type for a particular variable. So there are some built-in methods that are available for all strings, different methods that are available for all integers, etc.
+
+Below is an image that shows some methods that are possible with any string.
+
+![images](images/1.png)
+
+Each of these methods accepts the string itself as the first argument of the method. However, they also could receive additional arguments, that are passed inside the parentheses. Let's look at the output for a few examples.
+
+```py
+>>> my_string.islower()
+True
+>>> my_string.count('a')
+2
+>>> my_string.find('a')
+3
+```
+
+You can see that the `count` and `find` methods both take another argument. However, the `.islower()` method does not accept another argument.
+
+No professional has all the methods memorized, which is why understanding how to use documentation and find answers is so important. Gaining a strong grasp of the foundations of programming will allow you to use those foundations to use documentation to build so much more than someone who tries to memorize all the built-in methods in Python.
+
+**One important string method: `format()`**:
+
+We will be using the `format()` string method a good bit in our future work in Python, and you will find it very valuable in your coding, especially with your `print` statements.
+
+We can best illustrate how to use `format()` by looking at some examples:
+
+**Example 1**:
+
+```py
+print("Mohammed has {} balloons".format(27))
+```
+
+**Example 1 Output**:
+
+```py
+Mohammed has 27 balloons
+```
+
+**Example 2**:
+
+```py
+animal = "dog"
+action = "bite"
+print("Does your {} {}?".format(animal, action))
+```
+
+**Example 2 Output**:
+
+```py
+Does your dog bite?
+```
+
+**Example 3**:
+
+```py
+maria_string = "Maria loves {} and {}"
+print(maria_string.format("math", "statistics"))
+```
+
+**Example 3 Output**:
+
+```py
+Maria loves math and statistics
+```
+
+Notice how in each example, the number of pairs of curly braces {} you use inside the string is the same as the number of replacements you want to make using the values inside `format()`.
+
+More advanced students can learn more about the formal syntax for using the `format()` string method [here][10].
+
+### Quiz: String Methods
+
+**QUESTION 1 OF 3**:
+
+What happens when you call a string method like `islower()` on a float object? For example, `13.37.islower()`.
+
+There is a playground workspace further down this page that you can use to experiment.  
+
+`Solution`: An error occurs
+
+You can learn more about strings and string methods by looking at the [string method documentation][12].
+
+You will find that the documentation is one of the most valuable resources for writing code, and not only when it comes to strings or writing code in Python! By reading and searching the documentation you can learn about data types and built-in functions as well as how to use them.
+
+### Another important string method: `split()`
+
+A helpful string method when working with strings is the .split method. This function or method returns a data container called a `list` that contains the words from the input string. We will be introducing you to the concept of lists in the next video.
+
+The split method has two additional arguments (`sep` and `maxsplit`). The sep argument stands for "separator". It can be used to identify how the string should be split up (e.g., whitespace characters like space, tab, return, newline; specific punctuation (e.g., comma, dashes)). If the sep argument is not provided, the default separator is whitespace.
+
+True to its name, the maxsplit argument provides the maximum number of splits. The argument gives maxsplit + 1 number of elements in the new list, with the remaining string being returned as the last element in the list. You can read more about these methods in the Python documentation too.
+
+Here are some examples for the `.split()` method.
+
+A basic split method:
+
+```py
+new_str = "The cow jumped over the moon."
+new_str.split()
+```
+
+Output is:
+
+```py
+['The', 'cow', 'jumped', 'over', 'the', 'moon.']
+```
+
+Here the separator is space, and the maxsplit argument is set to 3.
+
+```py
+new_str.split(' ', 3)
+```
+
+Output is:
+
+```py
+['The', 'cow', 'jumped', 'over the moon.']
+```
+
+Using '.' or period as a separator.
+
+```py
+new_str.split('.')
+```
+
+Output is:
+
+```py
+['The cow jumped over the moon', '']
+```
+
+Using no separators but having a maxsplit argument of 3.
+
+```py
+new_str.split(None, 3)
+```
+
+Output is:
+
+```py
+['The', 'cow', 'jumped', 'over the moon.']
+```
+
+### Quiz: String Methods Coding Practice
+
+Below, we have a string variable that contains the first verse of the poem, If by Rudyard Kipling. Remember, \n is a special sequence of characters that causes a line break (a new line).
+
+```py
+verse = "If you can keep your head when all about you\n  Are losing theirs and blaming it on you,\nIf you can trust yourself when all men doubt you,\n  But make allowance for their doubting too;\nIf you can wait and not be tired by waiting,\n  Or being lied about, don’t deal in lies,\nOr being hated, don’t give way to hating,\n  And yet don’t look too good, nor talk too wise:"
+```
+
+Use the code editor below to answer the following questions about verse and use Test Run to check your output in the quiz at the bottom of this page.
+
+1. What is the length of the string variable `verse?
+1. What is the index of the first occurrence of the word 'and' in verse?
+1. What is the index of the last occurrence of the word 'you' in verse?
+1. What is the count of occurrences of the word 'you' in the verse?
+You will need to refer to Python's string methods documentation.
+
 <!-- urls / paths -->
 [1]: https://wiki.python.org/moin/BitwiseOperators
 [2]: https://www.programiz.com/python-programming/operators
@@ -387,3 +783,8 @@ else:
 [5]: https://atom.io/packages/linter-python-pep8
 [6]: https://softwareengineering.stackexchange.com/questions/148677/why-is-80-characters-the-standard-limit-for-code-width
 [7]: https://docs.python.org/3/tutorial/errors.html
+[8]: https://www.goodreads.com/author/quotes/203714.Henry_Ford
+[9]: https://docs.python.org/2/library/functions.html#len
+[10]: https://docs.python.org/3.6/library/string.html#format-string-syntax
+[11]: https://docs.python.org/3/library/stdtypes.html#string-methods
+[12]: https://docs.python.org/3/library/stdtypes.html#string-methods
