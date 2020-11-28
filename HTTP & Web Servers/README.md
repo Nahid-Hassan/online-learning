@@ -170,6 +170,8 @@ How do these things relate to the web address you put into your browser? Let's t
 
 ### Parts of a URI
 
+mailto is used for links to email addresses. data is used to put a piece of hardcoded data directly into a web page, for instance a small image. magnet is used for links to some file-sharing services such as BitTorrent. However, there is no such thing as a postal URI; if you want to send postal mail from the Web you still need to print it out and put it in the mailbox yourself.
+
 <!-- urls / paths -->
 [1]: https://git-scm.com/download/win
 [2]: https://docs.microsoft.com/en-us/windows/wsl/install-win10
