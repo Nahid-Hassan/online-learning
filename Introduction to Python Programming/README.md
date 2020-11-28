@@ -24,6 +24,8 @@ In this course, we use Python version 3 (or simply Python 3). If you'd like more
     - [Quiz: String Methods](#quiz-string-methods)
     - [Another important string method: `split()`](#another-important-string-method-split)
     - [Quiz: String Methods Coding Practice](#quiz-string-methods-coding-practice)
+    - ["There's a Bug in my Code"](#theres-a-bug-in-my-code)
+    - [Summary](#summary)
 
 ## Why Python Programming
 
@@ -775,6 +777,145 @@ Use the code editor below to answer the following questions about verse and use 
 1. What is the count of occurrences of the word 'you' in the verse?
 You will need to refer to Python's string methods documentation.
 
+**Solution: String Methods Practice**:
+
+**Version 1**:
+
+```py
+verse = "If you can keep your head when all about you\n  Are losing theirs and blaming it on you,\nIf you can trust yourself when all men doubt you,\n  But make allowance for their doubting too;\nIf you can wait and not be tired by waiting,\n  Or being lied about, don’t deal in lies,\nOr being hated, don’t give way to hating,\n  And yet don’t look too good, nor talk too wise:"
+print(verse, "\n")
+
+print("Verse has a length of {} characters.".format(len(verse)))
+print("The first occurrence of the word 'and' occurs at the {}th index.".format(verse.find('and')))
+print("The last occurrence of the word 'you' occurs at the {}th index.".format(verse.rfind('you')))
+print("The word 'you' occurs {} times in the verse.".format(verse.count('you')))
+```
+
+**Version 2**:
+
+Here's another way you could write the print statements and get the same output.
+
+```py
+verse = "If you can keep your head when all about you\n  Are losing theirs and blaming it on you,\nIf you can trust yourself when all men doubt you,\n  But make allowance for their doubting too;\nIf you can wait and not be tired by waiting,\n  Or being lied about, don’t deal in lies,\nOr being hated, don’t give way to hating,\n  And yet don’t look too good, nor talk too wise:"
+print(verse, "\n")
+
+message = "Verse has a length of {} characters.\nThe first occurrence of the \
+word 'and' occurs at the {}th index.\nThe last occurrence of the word 'you' \
+occurs at the {}th index.\nThe word 'you' occurs {} times in the verse."
+
+length = len(verse)
+first_idx = verse.find('and')
+last_idx = verse.rfind('you')
+count = verse.count('you')
+
+print(message.format(length, first_idx, last_idx, count))
+```
+
+**Output**:
+
+```text
+If you can keep your head when all about you
+  Are losing theirs and blaming it on you,
+If you can trust yourself when all men doubt you,
+  But make allowance for their doubting too;
+If you can wait and not be tired by waiting,
+  Or being lied about, don’t deal in lies,
+Or being hated, don’t give way to hating,
+  And yet don’t look too good, nor talk too wise:
+
+Verse has a length of 362 characters.
+The first occurrence of the word 'and' occurs at the 65th index.
+The last occurrence of the word 'you' occurs at the 186th index.
+The word 'you' occurs 8 times in the verse.
+```
+
+### "There's a Bug in my Code"
+
+**Debugging Code**:
+
+Everyone gets "`bugs`," or `unexpected errors`, in their code, and this is a normal and expected part of software development. We all say at one time or another, "Why isn't this computer doing what I want it to do?!"
+
+So an important part of coding is `"debugging"` your code, to remove these bugs. This can often take a long time, and cause you frustration, but developing effective coding habits and mental calmness will help you address these issues. With determined persistence, you can prevail over these bugs!
+
+Here are some tips on successful debugging that we'll discuss in more detail below:
+
+- Understand common error messages you might receive and what to do about them.
+- Search for your error message, using the Web community.
+- Use print statements.
+
+![images](./images/2.png)
+
+- **Understanding Common Error Messages**:
+
+There are many different error messages that you can receive in Python, and learning how to interpret what they're telling you can be very helpful. Here are some common ones for starters:
+
+- **"ZeroDivisionError: division by zero."**:
+   This is an error message that you saw earlier in this lesson. What did this error message indicate to us? You can look back in the Quiz: Arithmetic Operators section to review it if needed.
+
+- **"SyntaxError: unexpected EOF while parsing"**:
+   Take a look at the two lines of code below. Executing these lines produces this syntax error message - do you see why?
+
+  ```py
+  greeting = "hello"
+  print(greeting.upper
+  ```
+
+  This message is often produced when you have accidentally left out something, like a parenthesis. The message is saying it has unexpectedly reached the end of file `("EOF")` and it still didn't find that right parenthesis. This can easily happen with code syntax involving pairs, like beginning and ending quotes also.
+
+- **"TypeError: len() takes exactly one argument (0 given)"**:
+   This kind of message could be given for many functions, like `len` in this case, if I accidentally do not include the required number of arguments when I'm calling a function, as below. This message tells me how many arguments the function requires (one in this case), compared with how many I gave it (0). I meant to use `len(chars)` to count the number of characters in this long word, but I forgot the argument.
+
+  ```py
+  chars = "supercalifragilisticexpialidocious"
+  len()
+  ```
+
+  There are other kinds of error messages that you'll certainly begin experiencing soon in your Python work. Learning what they mean and how to address them will help you debug your code. You might keep an ongoing page of notes on them.
+
+**Search for Your Error Message**:
+
+Software developers like to share their problems and solutions with each other on the web, so using Google search, or searching in StackOverflow, or searching in Udacity's Knowledge forum are all good ways to get ideas on how to address a particular error message you're getting.
+
+- Copy and paste the error message into your web browser search tab, or in Knowledge, and see what others suggest about what might be causing it.
+- You can copy and paste the whole error message, with or without quotes around it.
+- Or you can search using just key words from the error message or situation you're facing, along with some other helpful words that describe your context, like Python and Mac.
+
+**Use Print Statements to Help Debugging**:
+
+Adding print statements temporarily into your code can help you see which code lines have been executed before the error occurs, and see the values of any variables that might be important. This approach to debugging can also be helpful even if you're not receiving an error message, but things just aren't working the way you want.
+
+### Summary
+
+You learned a ton in this lesson! To summarize, here's a recap of the data types and operators we covered.
+
+**Data Types**:
+
+We covered four important data types that you'll use all the time in programming:
+| Data Type | Constructor       | Example            |
+| :-------- | :---------------- | :----------------- |
+| int       | int()             | 5                  |
+| float     | float()           | 6.5                |
+| string    | '' or "" or str() | "this is a string" |
+| bool      | bool()            | True or False      |
+
+**Operators**:
+
+We also covered four useful sets of operators:
+
+![images](images/3.png)
+
+![images](images/4.png)
+
+**Additional Practice Resources**:
+
+When many students are getting started, they often always want more practice. There are a number of great websites you can use for coding exercises and solutions. Two that you should definitely take advantage of are [HackerRank][13] and [Codewars][14].
+
+**Note**: You may find some of the exercises require knowledge on concepts you haven't learned yet. Feel free to google them, or wait until you've gone through all the lessons in this course.
+
+I encourage you to create a profile on both and commit to improving your Python programming skills! As you get better, you can advance to harder problems and sites with even greater challenges. If you spend a lot of time on this, you'll really become a Python programming master.
+
+Happy coding and see you in the next lesson!
+
 <!-- urls / paths -->
 [1]: https://wiki.python.org/moin/BitwiseOperators
 [2]: https://www.programiz.com/python-programming/operators
@@ -788,3 +929,5 @@ You will need to refer to Python's string methods documentation.
 [10]: https://docs.python.org/3.6/library/string.html#format-string-syntax
 [11]: https://docs.python.org/3/library/stdtypes.html#string-methods
 [12]: https://docs.python.org/3/library/stdtypes.html#string-methods
+[13]: https://www.hackerrank.com/domains/python
+[14]: https://www.codewars.com/dashboard
