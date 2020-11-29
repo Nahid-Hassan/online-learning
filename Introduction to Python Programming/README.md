@@ -7,7 +7,7 @@ In this course, we use Python version 3 (or simply Python 3). If you'd like more
     - [Programming In Python](#programming-in-python)
     - [Introduction to Programming](#introduction-to-programming)
   - [Data Types and Operators](#data-types-and-operators)
-    - [Introduction](#introduction)
+    - [Introduction L2](#introduction-l2)
     - [Arithmetic Operators](#arithmetic-operators)
     - [Quiz: Arithmetic Operators](#quiz-arithmetic-operators)
     - [Variables and Assignment Operators](#variables-and-assignment-operators)
@@ -26,6 +26,9 @@ In this course, we use Python version 3 (or simply Python 3). If you'd like more
     - [Quiz: String Methods Coding Practice](#quiz-string-methods-coding-practice)
     - ["There's a Bug in my Code"](#theres-a-bug-in-my-code)
     - [Summary](#summary)
+  - [Data Structures](#data-structures)
+    - [Introduction L3](#introduction-l3)
+    - [List and Memberships Operators](#list-and-memberships-operators)
 
 ## Why Python Programming
 
@@ -47,7 +50,7 @@ When we go about using technology every single day we don't realize that these p
 
 ## Data Types and Operators
 
-### Introduction
+### Introduction L2
 
 **Data Types And Operators**:
 
@@ -915,6 +918,110 @@ When many students are getting started, they often always want more practice. Th
 I encourage you to create a profile on both and commit to improving your Python programming skills! As you get better, you can advance to harder problems and sites with even greater challenges. If you spend a lot of time on this, you'll really become a Python programming master.
 
 Happy coding and see you in the next lesson!
+
+## Data Structures
+
+Use data structures to order and group different data types together! Learn about the types of data structures in Python, along with more useful built-in functions and operators.
+
+### Introduction L3
+
+Welcome to this lesson on Data Structures! You'll learn about:
+
+1. Types of Data Structures: `Lists`, `Tuples`, `Sets`, `Dictionaries`, `Compound` Data Structures
+1. `Operators`: `Membership`, `Identity`
+1. Built-In Functions or `Methods`
+
+### List and Memberships Operators
+
+**Lists**:
+
+**Data structures** are containers that organize and group data types together in different ways. A **list** is one of the most common and basic data structures in Python.
+
+You saw here that you can create a list with square brackets. Lists can contain any mix and match of the data types you have seen so far.
+
+```py
+list_of_random_things = [1, 3.4, 'a string', True]
+```
+
+This is a list of 4 elements. All ordered containers (like lists) are indexed in python using a starting index of 0. Therefore, to pull the first value from the above list, we can write:
+
+```py
+>>> list_of_random_things[0]
+1
+```
+
+It might seem like you can pull the last element with the following code, but this actually won't work:
+
+```py
+>>> list_of_random_things[len(list_of_random_things)] 
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-34-f88b03e5c60e> in <module>()
+----> 1 lst[len(lst)]
+
+IndexError: list index out of range
+```
+
+However, you can retrieve the last element by reducing the index by 1. Therefore, you can do the following:
+
+```py
+>>> list_of_random_things[len(list_of_random_things) - 1] 
+True
+```
+
+Alternatively, you can index from the end of a list by using negative values, where -1 is the last element, -2 is the second to last element and so on.
+
+```py
+>>> list_of_random_things[-1] 
+True
+>>> list_of_random_things[-2] 
+a string
+```
+
+**Slice and Dice with Lists**:
+
+You saw that we can pull more than one value from a list at a time by using `slicing`. When using slicing, it is important to remember that the `lower` index is `inclusive` and the `upper` index is `exclusive`.
+
+Therefore, this:
+
+```py
+>>> list_of_random_things = [1, 3.4, 'a string', True]
+>>> list_of_random_things[1:2]
+[3.4]
+```
+
+will only return `3.4` in a list. Notice this is still different than just indexing a single element, because you get a list back with this indexing. The colon tells us to go from the starting value on the left of the colon up to, but not including, the element on the right.
+
+If you know that you want to start at the beginning, of the list you can also leave out this value.
+
+```py
+>>> list_of_random_things[:2]
+[1, 3.4]
+or to return all of the elements to the end of the list, we can leave off a final element.
+
+>>> list_of_random_things[1:]
+[3.4, 'a string', True]
+```
+
+This type of indexing works exactly the same on strings, where the returned value will be a string.
+
+**Are you `in` OR `not in`?**:
+
+You saw that we can also use `in` and `not in` to return a **bool** of whether an element exists within our list, or if one string is a substring of another.
+
+```py
+>>> 'this' in 'this is a string'
+True
+>>> 'in' in 'this is a string'
+True
+>>> 'isa' in 'this is a string'
+False
+>>> 5 not in [1, 2, 3, 4, 6]
+True
+>>> 5 in [1, 2, 3, 4, 6]
+False
+```
+
 
 <!-- urls / paths -->
 [1]: https://wiki.python.org/moin/BitwiseOperators
