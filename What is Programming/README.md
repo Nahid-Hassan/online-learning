@@ -6,6 +6,11 @@
     - [Front End vs Back End](#front-end-vs-back-end)
     - [Front End Languages](#front-end-languages)
     - [Back-End Languages](#back-end-languages)
+  - [Programming](#programming)
+    - [Syntax](#syntax)
+    - [Text Editors](#text-editors)
+    - [Programming](#programming-1)
+    - [Estimate Time to Complete](#estimate-time-to-complete)
 
 ## Web Development Language
 
@@ -252,6 +257,129 @@ To dig into back-end technology a bit more, check out the following resources:
 - <http://www.php.net/>
 - <https://nodejs.org/en/>
 - <https://golang.org/>
+
+## Programming
+
+### Syntax
+
+**Syntax Highlighting Code**:
+
+A program that's built for editing code will automatically highlight different parts of the code. This is called **syntax highlighting**.
+
+![images](images/2.png)
+
+Screenshot of code editor with code displayed with syntax highlighting.
+The code is colored to help the user to see similar areas and to navigate around the code more easily.
+
+**Syntax Errors**:
+
+One of the types of problems that can occur in code is if the developer makes a mistake in writing the syntax of the language. A mistake like this causes a **syntax error**. In a code editor, this will show up in various ways. One of the main ways, though, is that the syntax highlighting will display incorrectly (which is an indication to the developer that there's some kind of problem).
+
+A few examples of syntax errors would be:
+
+- a quote is missing
+- a comma is used instead of a semicolon
+- a curly brace (i.e. `{`) is used instead of a bracket (i.e. `[`)
+  
+Here's the code from the image above, but this time there's a syntax error in it:
+
+![images](images/3.png)
+
+Screenshot of code editor with code displayed with broken syntax highlighting.
+The syntax highlighting is messed up because the code was written incorrectly (a syntax error).
+
+**Further Research**:
+
+To learn more about syntax and syntax highlighting, check out these resources:
+
+[Syntax highlighting](https://en.wikipedia.org/wiki/Syntax_highlighting)
+[Syntax error](https://en.wikipedia.org/wiki/Syntax_error)
+
+### Text Editors
+
+Code in Text Editors for Coding purpose(like vscode, atom, sublime)
+
+```html
+<body>
+  <p class="configs">
+    <label for="visuals-filter">
+      <input type="text" name="visuals-filter" id="visuals-filter" class="visuals-filter">
+    </label>
+    <label for="single-column">
+      <input type="checkbox" name="single-column" id="single-column"> Single Column
+    </label>
+  </p>
+```
+
+Code in normal text editors: like (google-docs, ms-office)
+
+```doc
+<body>
+<p class="configs">
+<label for="visuals-filter">
+<input type="text" name="visuals-filter" id="visuals-filter" class="visuals-filter">
+</label>
+<label for="single-column">
+<input type="checkbox" name="single-column" id="single-column"> Single Column
+</label>
+</p>
+```
+
+**Popular Text Editors**:
+
+There are many different text editors that are available. A lot are free, while some are for pay. A major part of picking a text editor is how much the developer likes it, likes the features it offers, etc. A developer doesn't pick one text editor and stick with it for life. They'll try one out...maybe use it for a month or two...and then switch to a different one. If they find one they like, they could stick with it for several years, though.
+
+Currently, these are the top three code editors that I recommend right now:
+
+- [VSCode](https://code.visualstudio.com/)
+- [Atom](https://atom.io/)
+- [Sublime Text](https://www.sublimetext.com/)
+
+Text editors are always being developed and improved, though, so this list of the "top 3" will probably change.
+
+Personally, the code editor that _I_ m using right now is `VSCode`.
+
+**Text Editor Themes**:
+
+There are zillions of themes out there, so if you're not happy with the set of default themes that come with your text editor, pick a new one!
+
+link to themes for
+
+- [VSCode Themes](https://code.visualstudio.com/docs/getstarted/themes)
+- [Atom Themes](https://atom.io/themes)
+- [Sublime Text Themes](https://packagecontrol.io/browse/labels/theme)
+
+### Programming
+
+**Programming**:
+
+Programming. What does that mean? What does a programmer actually _do_ for hours upon hours every day?
+
+Programming is literally just writing code. That's it. There's no fancy magic involved. So if it's a front-end developer, they would probably have several HTML files open, several CSS files open, and several JavaScript files open in their code editor. Programming, then, is just writing HTML in the HTML file(s) and/or writing CSS in the CSS file(s) and/or writing JavaScript in the JavaScript file(s).
+
+**Fixing Errors**:
+
+In the previous section on Syntax, we looked at syntax errors. Part of a programmer's responsibilities is to write code that is free from errors. A developer isn't perfect, though, so they will make mistakes. When these errors occur, the developer most stop and fix them.
+
+This finding the error(s) and then re-writing the code so it's now error-free is also part of programming.
+
+**Refactoring**:
+
+Refactoring is taking code that achieves outcome X and either deleting or rewriting it (so there's less code) that still achieves outcome X.
+
+Refactoring seems a bit odd if you haven't ever written code before, but after weeks, months or years of working on a project, there's a lot of code that's been built up. For various reasons, some of that code might not even be used anymore. By removing code (that doesn't affect the overall functionality), it makes the project easier to work with and easier to understand what's happening (because there's less code to read through).
+
+Refactoring is also a part of programming.
+
+### Estimate Time to Complete
+
+Programming can be a challenging profession in that actually programming is a journey of discovery.
+
+When a programmer starts working on something, they don't just sit down, open up an empty file, and code everything perfectly from start to finish. Things come up that stop the developer from proceeding. There could be a syntax error that they have to stop and fix, or a bigger problem that needs resolving, or perhaps the code functions correctly, but doesn't do what the developer expected it to do. In this last case, the code is written accurately, but the logic is incorrect (meaning the ordered set of steps that the code follows doesn't do what the developer thought it would). All of these things require the developer to stop and address them.
+
+As you can see, there's a lot of trial and error in getting to the end result. Now, the more senior a developer is, the fewer mistakes they make and/or the faster they are able to diagnose and resolve the issues. But even an expert will encounter issues that will take them some time to resolve.
+
+But these issues are a large part of becoming an expert! You learn a lot more from your mistakes than you do from your successes!
 
 <!-- urls/paths -->
 [1]: https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011
