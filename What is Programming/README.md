@@ -11,6 +11,10 @@
     - [Text Editors](#text-editors)
     - [Programming](#programming-1)
     - [Estimate Time to Complete](#estimate-time-to-complete)
+  - [Standards](#standards)
+    - [Developing HTML & CSS](#developing-html--css)
+    - [Developing JavaScript](#developing-javascript)
+    - [Developing Python](#developing-python)
 
 ## Web Development Language
 
@@ -380,6 +384,147 @@ When a programmer starts working on something, they don't just sit down, open up
 As you can see, there's a lot of trial and error in getting to the end result. Now, the more senior a developer is, the fewer mistakes they make and/or the faster they are able to diagnose and resolve the issues. But even an expert will encounter issues that will take them some time to resolve.
 
 But these issues are a large part of becoming an expert! You learn a lot more from your mistakes than you do from your successes!
+
+## Standards
+
+### Developing HTML & CSS
+
+[![Image Alt Text Here](https://img.youtube.com/vi/QmllknZw8C4/0.jpg)](https://www.youtube.com/watch?v=QmllknZw8C4)
+
+**HTML & CSS Code**:
+
+Here's some HTML code:
+
+```html
+<p class="configs">
+    <label for="visuals-filter">
+        <input type="text" name="visuals-filter" id="visuals-filter" class="visuals-filter">
+    </label>
+    <label for="single-column">
+        <input type="checkbox" name="single-column" id="single-column"> Single Column
+    </label>
+</p>
+```
+
+How did we get these tags? Why is a label tag written as `<label>`? What about the `for` attribute? Why is the word "for"?
+
+What about this CSS code:
+
+```css
+.configs {
+    display: flex;
+    font-size: 0.7em;
+    color: #bdbdbd;
+    margin: 0;
+}
+```
+
+How did _I_ know how to write these rules? How did I know what was available to me? How did I know it was `font-size` and not `font size`, `fontsize` or `font_size`?
+
+**W3C**:
+
+The organization that determines the HTML and CSS languages is the W3C. "W3C" stands for the World Wide Web Consortium.
+
+The W3C is made up of different different groups that work on the different languages. You can find out more information about the W3C on their website: <https://www.w3.org/>
+
+**Specs**:
+
+These groups create `a specification file` for each language
+
+Here are some specifications:
+
+- the [HTML 5.3](https://www.w3.org/TR/html53/) spec
+- the [HTML 5.2](https://www.w3.org/TR/html52/) spec
+- the [CSS Grid Layout](https://www.w3.org/TR/css-grid-1/) Module Level 1 spec
+- the [CSS Transitions](https://www.w3.org/TR/css-transitions-1/) spec
+
+These spec files detail out exactly how these parts of the language should work. So a spec file is the standard. Then browser makers refer to these specifications when they're building out the functionality for their browser.
+
+### Developing JavaScript
+
+[![Image Alt Text Here](https://img.youtube.com/vi/rO_tcfbrPVc/0.jpg)](https://www.youtube.com/watch?v=rO_tcfbrPVc)
+
+
+**JavaScript Code**:
+
+Here's some JavaScript code:
+
+```java
+function atomIsVideoType(table) {
+  const validVideoTypes = ['HS', 'SC', 'A', 'HS/SC', 'HS/A', 'SC/A', 'HS/SC/A'];
+  const tableType = getTableType(table);
+
+    if (validVideoTypes.indexOf(tableType) >= 0) {
+        return true;
+    }
+
+    return false;
+}
+```
+
+How did we get the `if`? Or what about the word `function`?...where did it come from? Or the cryptic `const` keyword?...how does it function?
+
+**TC39**:
+
+The organization that's in charge of the development of the JavaScript programming language is ECMA International. ECMA International is made up of different groups called "technical committees". The technical committee that's in charge of JavaScript is the 39th committee (commonly displayed as TC39).
+
+JavaScript is actually one implementation of a language specification called ECMAScript.
+
+**The Spec**:
+
+The actual specification for the ECMAScript language specification is [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm).
+
+**Udacity Content**:
+
+The ECMAScript specification can definitely be a bit cryptic to read, especially if you're brand new to the language. If you're interested in learning a little bit more about how to use the language before diving into the language's spec, then why don't you take a look at:
+
+- the [Front End Nanodegree](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011) Program
+- the [Intro to JavaScript course](https://www.udacity.com/course/intro-to-javascript--ud803)
+- the [JavaScript and the DOM course](https://www.udacity.com/course/javascript-and-the-dom--ud117)
+- the [Object-Oriented JavaScript course](https://www.udacity.com/course/object-oriented-javascript--ud711)
+
+**Further Research**:
+
+How to Read the [ECMAScript Specification](https://www.ecma-international.org/ecma-262/11.0/index.html#title)
+
+### Developing Python
+
+[![Image Alt Text Here](https://img.youtube.com/vi/2OWZLRmeAo4/0.jpg)](https://www.youtube.com/watch?v=2OWZLRmeAo4)
+
+
+**Python Code**:
+
+Here's some Python code:
+
+```py
+def answer(s):
+    encryption = {'a': 'z', 'b': 'y', 'c': 'x', 'd': 'w', 'e': 'v', 'f': 'u', 'g': 't', 'h': 's', 'i': 'r', 'j': 'q', 'k': 'p', 'l': 'o', 'm': 'n', 'n': 'm', 'o': 'l', 'p': 'k', 'q': 'j', 'r': 'i', 's': 'h', 't': 'g', 'u': 'f', 'v': 'e', 'w': 'd', 'x': 'c', 'y': 'b', 'z': 'a'}
+    decrypted_word = ''
+
+    for c in s:
+        if c in string.ascii_lowercase:
+            decrypted_word += encryption[c]
+        else:
+            decrypted_word += c
+
+    print decrypted_word
+```
+
+How did we get the `def`? In the JavaScript language, the curly brace (i.e. `{`) is used after an `else`, `while` in Python, it's the colon (i.e. `:`)...how was it determined that Python would use the `colon` instead of the `curly brace`?
+
+**PSF**:
+
+The Python Software Foundation (PSF) is the standards body for the Python language. This group determines how the Python language is built and improved. Here's the PSF website - <https://www.python.org/psf-landing/> .
+
+The documentation for using the current version of the Python language can be found here - <https://docs.python.org/3/> .
+
+Udacity Content
+Typically, back-end languages have better documentation, because the language maintainers just have to create the language and explain how to use it. Compare this with front-end language maintainers that don't build the websites that have to use HTML, CSS, and JavaScript...so front-end language maintainers develop the specs that are then used by browser makers when they are building out their browser.
+
+If you'd like to learn more about Python, check out the [Python docs](https://docs.python.org/3/) or take a look at one of the following Udacity resources:
+
+the [Full Stack Nanodegree Program][7]
+the [Programming Foundations with Python][8] course
 
 <!-- urls/paths -->
 [1]: https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011
