@@ -538,7 +538,6 @@ the [Programming Foundations with Python][8] course
 
 ## Version Control
 
-
 ### Why Version Control Is Needed
 
 [![Image Alt Text Here](https://img.youtube.com/vi/oIWa7TOmZ4Y/0.jpg)](https://www.youtube.com/watch?v=oIWa7TOmZ4Y)
@@ -581,9 +580,7 @@ I've said "snapshot" several times, but what is that. It's just a copy of the fi
 
 > What's with the Staging Index?
 > Why do we need the Staging Index?...it seems like a middleman that's serving no real purpose.
- 
 > The Staging Area is, just like its name says, a staging ground; a developer moves files to the Staging Area that they want to end up in the repository. So a developer could be working on many files, but might not want to save all files...perhaps they want to save some that they're finished with but keep others out of the repository until they are complete. The developer would use Git to move the files they want to save (to the repository) to the Staging Index, and they would then make a save...saving only those files to the repository.
-
 
 ### Where Github Fits In
 
