@@ -15,8 +15,11 @@
     - [Developing HTML & CSS](#developing-html--css)
     - [Developing JavaScript](#developing-javascript)
     - [Developing Python](#developing-python)
+  - [Version Control](#version-control)
 
 ## Web Development Language
+
+Learn how to explain and categorize web development languages. Check back in soon!
 
 ### Lesson 1: Introduction
 
@@ -264,6 +267,8 @@ To dig into back-end technology a bit more, check out the following resources:
 
 ## Programming
 
+Learn how to explain and categorize web development languages. Check back in soon!
+
 ### Syntax
 
 **Syntax Highlighting Code**:
@@ -386,6 +391,8 @@ As you can see, there's a lot of trial and error in getting to the end result. N
 But these issues are a large part of becoming an expert! You learn a lot more from your mistakes than you do from your successes!
 
 ## Standards
+
+Learn the lingo related to what web standards are and how programming languages are developed. Check back in soon!
 
 ### Developing HTML & CSS
 
@@ -523,6 +530,10 @@ If you'd like to learn more about Python, check out the [Python docs](https://do
 
 the [Full Stack Nanodegree Program][7]
 the [Programming Foundations with Python][8] course
+
+## Version Control
+
+Get familiar with what Version Control is, how it works, and what related tools are used. Check back in soon!
 
 <!-- urls/paths -->
 [1]: https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011
