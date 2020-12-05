@@ -16,6 +16,11 @@
     - [Developing JavaScript](#developing-javascript)
     - [Developing Python](#developing-python)
   - [Version Control](#version-control)
+    - [Why Version Control Is Needed](#why-version-control-is-needed)
+    - [How Version Control Works](#how-version-control-works)
+    - [Where Github Fits In](#where-github-fits-in)
+    - [What a PR Is](#what-a-pr-is)
+  - [Disparate Web Terms](#disparate-web-terms)
 
 ## Web Development Language
 
@@ -533,7 +538,88 @@ the [Programming Foundations with Python][8] course
 
 ## Version Control
 
+
+### Why Version Control Is Needed
+
+[![Image Alt Text Here](https://img.youtube.com/vi/oIWa7TOmZ4Y/0.jpg)](https://www.youtube.com/watch?v=oIWa7TOmZ4Y)
+
 Get familiar with what Version Control is, how it works, and what related tools are used. Check back in soon!
+
+**Lost Work**:
+
+A developer will work on potentially hundreds of files in a week. They'll be making changes all over the place...and after a couple of minutes, they'll forget which files they've changed and which lines of code they changed in those files.
+
+After making a number of changes across the codebase, they encounter some roadblock and need to undo the changes they've made. But since there are so many files and so many intricate changes to these files, it makes it extremely difficult to undo these changes.
+
+And what about the scenario where, instead of undoing all of the changes they've made, they only need to undo some of the changes? This can be quite a bit more challenging to maintain a project where changes are made and then only some are reverted. The developer doesn't want to lose all of the work they've done.
+
+**VCS = Save Button**:
+
+A Version Control System (VCS) is a system that is designed to help a developer maintain different versions of their work. Basically, you can think of a VCS as a save button for any kind of file.
+
+Some of the most common VCSes are:
+
+- [Git](https://git-scm.com/)
+- [SVN](https://subversion.apache.org/)
+- [Mercurial](https://www.mercurial-scm.org/)
+
+### How Version Control Works
+
+[![Image Alt Text Here](https://img.youtube.com/vi/mEhiHSyRy_s/0.jpg)](https://www.youtube.com/watch?v=mEhiHSyRy_s)
+
+**Git's Main Sections**:
+
+There are three main sections to Git
+
+- the `Working Directory`
+- the `Staging Index`
+- the `repository`
+
+Git manages all three of these sections. We won't get into to much detail here, but a developer really only works with the Working Directory directly. The Working Directory contains the files that the developer is working on. When the developer is done programming and wants to save their work, they would use Git to take a snapshot of their files, move the snapshot of files to the Staging Index, and from there into the repository. The repository is a collection of saved snapshots.
+
+I've said "snapshot" several times, but what is that. It's just a copy of the file at the time when the developer saved it to the Git repository.
+
+> What's with the Staging Index?
+> Why do we need the Staging Index?...it seems like a middleman that's serving no real purpose.
+ 
+> The Staging Area is, just like its name says, a staging ground; a developer moves files to the Staging Area that they want to end up in the repository. So a developer could be working on many files, but might not want to save all files...perhaps they want to save some that they're finished with but keep others out of the repository until they are complete. The developer would use Git to move the files they want to save (to the repository) to the Staging Index, and they would then make a save...saving only those files to the repository.
+
+
+### Where Github Fits In
+
+[![Image Alt Text Here](https://img.youtube.com/vi/ij4BlUlQDQo/0.jpg)](https://www.youtube.com/watch?v=ij4BlUlQDQo)
+
+**Git ≠ GitHub**
+Even though Git is in the name "GitHub", Git and GitHub are very different.
+
+Git is the tool that is installed locally on a computer. A developer would then use the Git tool on their local machine to manage the local Git repository.
+
+Compare that with GitHub which is a hosting and collaboration service. GitHub is a hosting service in that it lets you store your local Git repository up on GitHub. Once it's stored with GitHub, you can then share the link to your Git project on GitHub with other developers.
+
+Udacity Content
+If you're interested in learning more about Git and/or GitHub, check out:
+
+- the [Version Control with Git](https://www.udacity.com/course/version-control-with-git--ud123) course
+
+### What a PR Is
+
+[![Image Alt Text Here](https://img.youtube.com/vi/d-wuHYOy1Ys/0.jpg)](https://www.youtube.com/watch?v=d-wuHYOy1Ys)
+
+**A "PR"**:
+
+PR stands for "pull request". Let's look at exactly what a pull request is and why PRs are so common.
+
+**Git + GitHub = Collaboration**:
+
+In the previous section, we looked at how GitHub is a hosting and collaboration service. Since GitHub is a hosting service, we can use it to store a local Git repository. Once the Git repository is stored with GitHub, you can then share the link to your Git project on GitHub with other developers. These other developers can use GitHub to get a copy of the project, make changes to it, and share those changes back.
+
+Let's work through a scenario. I am working on a project and saving my code to my local Git repository. I have two friends, Wael and Nidhi, and I want their help on some of the code. I share my project up on GitHub and send them the link to it. Nidhi copies the project to her GitHub account, then copies it to her computer and makes three changes to it. She uploads her changes to the copy on her GitHub account. Since she doesn't have access to _my_ GitHub account, she sends me a request to pull in (a Pull Request!) the changes she made to _my_ original repository…which I do.
+
+Then Wael finally decides he's got some additions he can contribute, so he makes a copy of my Git project on GitHub (which includes the changes that Nidhi made!). He copies the Git project to his own GitHub account, copies it down to his computer, makes some changes, uploads it back to his GitHub, and sends me a PR (pull request) to include his changes into my original repository.
+
+## Disparate Web Terms
+
+Learn a variety of disparate web terms and how they work together in the digital world. Check back in soon!
 
 <!-- urls/paths -->
 [1]: https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011
