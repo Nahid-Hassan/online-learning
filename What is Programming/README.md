@@ -9,7 +9,7 @@
   - [Programming](#programming)
     - [Syntax](#syntax)
     - [Text Editors](#text-editors)
-    - [Programming](#programming-1)
+    - [PROGRAMMING](#programming-1)
     - [Estimate Time to Complete](#estimate-time-to-complete)
   - [Standards](#standards)
     - [Developing HTML & CSS](#developing-html--css)
@@ -126,7 +126,7 @@ A programming language must have its own means of storing that data internally. 
 - number - literally just numbers (e.g `1`, `0`, `117`)
 - array or list - a list of items (e.g. an array of numbers: `[1, 3, 9]`, a list of strings: `['Richard', 'Udacity', 'one', 'apple', 'ice cream']`)
 - object or dictionary - a key/value pair (e.g. `{firstName: 'Richard'}`)
- 
+
 A programming language must be able to perform actions based off of some information or event. For example, here are some flow control structures that most programming languages have:
 
 - `if` - perform some action _if_ something else is true
@@ -353,7 +353,7 @@ link to themes for
 - [Atom Themes](https://atom.io/themes)
 - [Sublime Text Themes](https://packagecontrol.io/browse/labels/theme)
 
-### Programming
+### PROGRAMMING
 
 **Programming**:
 
@@ -444,7 +444,6 @@ These spec files detail out exactly how these parts of the language should work.
 
 [![Image Alt Text Here](https://img.youtube.com/vi/rO_tcfbrPVc/0.jpg)](https://www.youtube.com/watch?v=rO_tcfbrPVc)
 
-
 **JavaScript Code**:
 
 Here's some JavaScript code:
@@ -491,7 +490,6 @@ How to Read the [ECMAScript Specification](https://www.ecma-international.org/ec
 
 [![Image Alt Text Here](https://img.youtube.com/vi/2OWZLRmeAo4/0.jpg)](https://www.youtube.com/watch?v=2OWZLRmeAo4)
 
-
 **Python Code**:
 
 Here's some Python code:
@@ -528,7 +526,7 @@ the [Programming Foundations with Python][8] course
 
 <!-- urls/paths -->
 [1]: https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011
-[2]: https://www.udacity.com/course/intro-to-html-and-css--ud001 
+[2]: https://www.udacity.com/course/intro-to-html-and-css--ud001
 [3]: https://www.udacity.com/course/intro-to-javascript--ud803
 [4]: https://developer.mozilla.org/en-US/docs/Web/HTML
 [5]: https://developer.mozilla.org/en-US/docs/Web/CSS
