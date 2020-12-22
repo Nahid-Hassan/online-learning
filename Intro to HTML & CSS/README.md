@@ -10,6 +10,16 @@
     - [HTML Research](#html-research)
     - [HTML Structure Part 2](#html-structure-part-2)
     - [HTML Documents in Depth](#html-documents-in-depth)
+  - [Lesson 2](#lesson-2)
+    - [Make a button](#make-a-button)
+    - [Make All the Headers](#make-all-the-headers)
+    - [Make a list](#make-a-list)
+    - [Tree to HTML](#tree-to-html)
+    - [Hyperlinks](#hyperlinks)
+    - [Add an Image](#add-an-image)
+    - [Path](#path)
+    - [Figures](#figures)
+    - [Mockup Website](#mockup-website)
 
 ## Lesson 1
 
@@ -167,15 +177,15 @@ The `<head>` will contain general information and metadata about the page, while
 
 ![images](images/7.png)
 
-All of the HTML syntax that you’ve learned in this lesson will help you create the content of the page, which is always contained inside the <body> tags. The <body> is always visible.
+All of the HTML syntax that you’ve learned in this lesson will help you create the content of the page, which is always contained inside the `<body>` tags. The `<body>` is always visible.
 
-The <head>, on the other hand, is never visible, but the information in it describes the page and links to other files the browser needs to render the website correctly. For instance, the <head> is responsible for:
+The `<head>`, on the other hand, is never visible, but the information in it describes the page and links to other files the browser needs to render the website correctly. For instance, the `<head>` is responsible for:
 
-- the document’s title (the text that shows up in browser tabs): <title>About Me</title>.
-- associated CSS files (for style): <link rel="stylesheet" type="text/css" href="style.css">.
-- associated JavaScript files (multipurpose scripts to change rendering and behavior): <script src="animations.js"></script>.
-- the charset being used (the text's encoding): <meta charset="utf-8">.
-- keywords, authors, and descriptions (often useful for SEO): <meta name="description" content="This is what my website is all about!">.
+- the document’s title (the text that shows up in browser tabs): `<title>About Me</title>`.
+- associated CSS files (for style): `<link rel="stylesheet" type="text/css" href="style.css">`.
+- associated JavaScript files (multipurpose scripts to change rendering and behavior): `<script src="animations.js"></script>`.
+- the charset being used (the text's encoding): `<meta charset="utf-8">.`
+- keywords, authors, and descriptions (often useful for SEO): `<meta name="description" content="This is what my website is all about!">.`
 - … and more!
 
 At this point, just focus on these two tags:
@@ -192,3 +202,220 @@ At this point, just focus on these two tags:
 **HTML Validators**:
 
 This might seem like a lot to remember, but thankfully, there are tools out there to help you. Much like how the Udacity Feedback Extension tells you when you've met all the requirements for a particular project, [HTML validators](https://validator.w3.org/) analyze your website and verify that you're writing valid HTML.
+
+## Lesson 2
+
+### Make a button
+
+```html
+<button> Click Me </button>
+```
+
+### Make All the Headers
+
+Websites have different ways to show you, the user, what is important. Take for example...
+
+Big Important Words!
+This style of text Big Important Words! is called a header. This should look familiar because almost every website uses headers.
+
+The New York Times mobile site uses them. Check out all of the images below. The heading has a red square around each heading.
+
+![images](images/9.png)
+
+![images](images/10.png)
+
+**Main Headings and Subheadings**:
+
+It's also pretty common to see more than one kind of header being used. Here's an example of two headers on Medium.
+
+![images](images/11.png)
+
+**Experiments**:
+
+```html
+<h1>This is heading 1</h1>
+<h2>This is heading 2</h2>
+<h3>This is heading 3</h3>
+<h4>This is heading 4</h4>
+```
+
+### Make a list
+
+Did you know that web developers spend 67.7493% of their time looking things up?
+
+Ok, I made up that number.
+
+But seriously, making sense of documentation and looking up new techniques and technologies is a huge part of any web developer's work. And that's what you're going to do in this exercise.
+
+**For this exercise**:
+
+- Notice that what you're reading right now is an unordered list :) An unordered list usually displays with bullet points.
+- Use the Mozilla Developer Network (MDN) to research unordered lists (`<ul>`).
+- Make an unordered list with the three web languages:
+  - HTML
+  - CSS
+  - JavaScript
+
+There are two types of lists - ordered lists (with numbers or letters) and unordered lists. Both of them require two kinds of elements. One is going to be nested inside the other (there will be one parent and multiple children).
+
+```html
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+</ul>
+```
+
+### Tree to HTML
+
+You've been learning about the relationship between data trees and HTML. Here's a sample tree for this exercise:
+
+![images](images/12.png)
+
+**Solution**:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Tree HTML</title>
+    </head>
+    <body>
+        <h1>This is a heading 1</h1>
+        <div>
+            <p>Paragraph 1</p>
+            <p>Paragraph 2</p>
+        </div>
+    </body>
+</html>
+```
+
+### Hyperlinks
+
+The power of the web is that pages can lead to other pages. When you click on a link on a web page, it takes you to another page. This link is called a hyperlink.
+
+Hyperlinks are created with [anchor elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a), which generally look like
+
+```html
+<a href="https://www.udacity.com">Udacity</a>
+```
+
+Inside the opening `a` tag there is `href`, which stands for `"reference."` This is called an `attribute`. **Attributes like href describe the properties of HTML elements**. In this case, the href attribute is the `target URL` that the link will open. The content inside the anchor element is the text that users see displayed on the page.
+
+```html
+<p>You can reach Michael at:</p>
+
+<ul>
+  <li><a href="https://example.com">Website</a></li>
+  <li><a href="mailto:m.bluth@example.com">Email</a></li>
+  <li><a href="tel:+123456789">Phone</a></li>
+</ul>
+```
+
+This is the format that you must use when you make hyperlinks! Note:
+
+- There is a `space` between `a` and `href`.
+- There are `no spaces` around the `=`.
+- The website has two `"` around it.
+- There are no spaces between the `href attribute and the >` of the opening tag.
+
+### Add an Image
+
+![images](images/13.png)
+
+IMAGES! Images on the web are awesome. Time to make one.
+
+For this exercise, you'll be linking an image in your Workspace. I'll give you the URL of an image and it will be your
+job to make it display.
+
+An image is made with an <img> element. It looks like so:
+
+```html
+<img src="http://somewebsite.com/image.jpg" alt="short description">
+```
+
+The source attribute, src, is like the href of a link - it is the URL of the image you want to display. For now, your
+images will need to be hosted online, which means that the URL will need to start with http:// or https://. You'll learn
+about another way to set image source in the next exercise. The alt attribute stands for "alternative description,"
+which is important for people who use screen readers to browse the web. This is text that will show up in lieu of the
+actual image.
+
+An image element is a little different than the elements you've seen before. Images do not need closing tags! (For the
+eager, these are called "[void elements](https://www.w3.org/TR/html52/syntax.html#void-elements)".)
+
+Here's the [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) about images.
+
+```html
+<img class="fit-picture"
+     src="/media/cc0-images/grapefruit-slice-332-332.jpg"
+     alt="Grapefruit slice atop a pile of other slices">
+```
+
+### Path
+
+You'll soon make a website that displays an image that is stored locally on your computer. In order to display a local image, you need to be able to write a path.
+
+If there is a file called `index.html` in a directory and there is another directory called `example/` in the same directory, you can access any files in `example/` from `index.html` with the URL (path) example/filename.html, e.g. `<a href="example/filename.html">Example Path</a>`.
+
+![images](images/14.png)
+
+![images](images/15.png)
+
+[To Learn about Paths](https://classroom.udacity.com/courses/ud001/lessons/7222405183/concepts/73276037150923)
+
+### Figures
+
+For this exercise, you need to edit index.html so that the caption displays below the image. I want you to use a relative path to the image, which is going to be in the same directory as index.html. Remember, a relative path points to the file from the current directory - it does not start with the root. (Your relative path should not start with /, file://, C:\, or http://).
+
+I want you to:
+
+- Create a `<figure>` element
+- Add an `<img>` element whose src attribute points to the provided image (look in the Workspace's sidebar for - the "redwoods_state_park.jpg" image!)
+- Add an alt attribute to the image
+- Add a `<figcaption>` element with the text for the image's caption
+
+Change the Markdown code to a real HTML link
+Hint: If you get stuck, I recommend checking out the figure element on MDN.
+
+```html
+<figure>
+    <img src="/media/cc0-images/elephant-660-480.jpg"
+         alt="Elephant at sunset">
+    <figcaption>An elephant at sunset</figcaption>
+</figure>
+```
+
+### Mockup Website
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Dev Blog Post</title>
+</head>
+
+<body>
+    <!-- Format the text below! When you're done, you can click over to solution.html to see how I did it. 
+-->
+    <h1>Hottest Jobs in 2016 #2: Web Developer</h1>
+
+    <p>By <em>Christopher Watkins</em></p>
+
+    <p>January 19, 2016</p>
+
+    <img
+        src="http://i1.wp.com/blog.udacity.com/wp-content/uploads/2016/01/Slack-for-iOS-Upload.jpg?zoom=2&amp;resize=320%2C168">
+
+    <p>There is a simple reason why Web Developer is such a hot job right now. Put simply, what Web Developers do is
+        create how we experience … the web. If you proceed from the notion that every person who engages with the web
+        would prefer a great experience, then you can say that everyone who engages with the web would prefer that a Web
+        Developer have done a great job. Companies of course know this, so they hire Web Developers to ensure their
+        sites provide great experiences. So, lots of websites and lots of users means lots of demand. LOTS of demand. 🔥
+    </p>
+</body>
+
+</html>
+```
