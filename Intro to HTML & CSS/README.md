@@ -34,6 +34,8 @@
   - [Lesson 4](#lesson-4)
     - [Welcome to the CSS syntax problem set!](#welcome-to-the-css-syntax-problem-set)
     - [Style an Image](#style-an-image)
+    - [Style the Font](#style-the-font)
+    - [Using attributes](#using-attributes)
 
 ## Lesson 1
 
@@ -659,3 +661,136 @@ After you've completed the problem set, you should feel more confident when addi
 `border`, `cursor`, `box-shadow`
 
 Play with cursor: <https://www.w3schools.com/cssref/playit.asp?filename=playcss_cursor&preval=alias>
+
+```html
+<!DOCTYPE html>
+
+<!-- Instructions: Replicate the same styling seen in the kitten image below. -->
+
+<html>
+
+<head>
+    <title>Style an Image Quiz</title>
+    <style>
+        .kitten-image {
+            border: 5px dashed salmon;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 5px 5px 20px #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Image credit: Nicolas Suzor, https://www.flickr.com/photos/nicsuzor/ - via Flickr, Creative Commons. -->
+    <img src="http://udacity.github.io/fend/lessons/L3/problem-set/02-style-an-image/kitten.jpg" alt="kitten"
+        class="kitten-image">
+</body>
+
+</html>
+```
+
+### Style the Font
+
+For this quiz, you'll experiment with styling font using the "udacity" text below.
+
+![images](images/2.jpg)
+
+Hint: The font color is a shade of purple (#8001ff)
+
+Fonts
+When using fonts on the web, you must first consider what fonts are available to your users. Every operating system, be it Windows, OS X, or Linux, comes with a set of pre-installed fonts that you can use for customizing your website. For a complete list of "web-safe" fonts, follow this link.
+
+The way it works is fairly simple. When using the font-family property, you specify the font(s) you want to use in your HTML.
+
+`font-family: font1, font2, font3, ...;`
+
+Then, the browser, starting from left to right, looks at the font(s) you've specified and checks to see if it can render the text using the font(s) you've provided. If it can't use the first font, then the browser moves to the next font, and so-on.
+
+The purpose for specifying multiple fonts is because not all fonts are available on every operating system. So, specifying multiple, similar fonts ensures users have a consistent experience regardless of the operating system they are using.
+
+In the solution, I specified font-family: `Helvetica`, `Arial`, `sans-serif`;. Therefore, the browser first tries to render the font `Helvetica`. On Macs this works because `Helvetica` is a standard font packaged with the operating system. However, on Windows and Linux machines, it is possible (not likely) that those operating systems do not have support for the `Helvetica` font by default, so the browser would then try to use Arial. If Arial doesn't exist, then the browser will use whatever sans-serif font is available.
+
+**Custom Fonts**:
+
+It is also possible to use custom fonts on the web. If you want to go ahead and start experimenting, you can check out Google Fonts to see some open-source web fonts in action! With custom web fonts, it's not as important to specify multiple fonts like seen above; however, it is still smart to specify at least one backup font in case your custom font doesn't load.
+
+### Using attributes
+
+Please visit this link: <https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors>
+
+```html
+<!DOCTYPE html>
+<!-- Instructions: Using the provided HTML and CSS, add the correct attributes to the HTML to replicate solution provided on the previous page. 
+
+If you need to click back over - don't worry! Your workspace will be saved for you.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Using Attributes Quiz</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        #to-do-list {
+            width: 400px;
+            background: #2e3d49;
+            padding: 10px 20px;
+        }
+
+        .title {
+            color: #fff;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .list {
+            list-style-type: circle;
+            text-align: left;
+            font-size: 16px;
+            color: #1fba58;
+            line-height: 24px;
+        }
+
+        .finished {
+            color: #f4442f;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="to-do-list">
+        <h1 class="title underline">My To-Do List</h1>
+        <h2 class="title underline">Chores</h2>
+        <ul class="list">
+            <li>load the diswasher</li>
+            <li>vacuum living room</li>
+            <li>take out garbage</li>
+            <li class="finished">sweep the garage</li>
+        </ul>
+        <h2 class="title underline">Homework</h2>
+        <ul class="list">
+            <li class="finished">brainstorm ideas for Science project</li>
+            <li class="finished">finish Calculus 2 problems</li>
+            <li>study for Programming midterm :P</li>
+            <li>finish Project 0 on Udacity FEND</li>
+            <li class="finished">find sources for Biology research paper</li>
+            <li>read first two chapters of The Art of War</li>
+        </ul>
+        <h2 class="title underline">Party</h2>
+        <ul class="list">
+            <li class="finished">send out invitations</li>
+            <li>reserve party room at restaurant</li>
+            <li>order the cake!</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+```
