@@ -20,6 +20,20 @@
     - [Path](#path)
     - [Figures](#figures)
     - [Mockup Website](#mockup-website)
+  - [Lesson 3](#lesson-3)
+    - [CSS or HTML?](#css-or-html)
+    - [CSS Rulesets](#css-rulesets)
+    - [Comments](#comments)
+    - [Tag Selectors](#tag-selectors)
+    - [Attributes and Selectors](#attributes-and-selectors)
+    - [Using Selectors](#using-selectors)
+    - [Developer tools on different browsers](#developer-tools-on-different-browsers)
+    - [CSS Units](#css-units)
+    - [CSS Colors](#css-colors)
+    - [Identifying Color](#identifying-color)
+  - [Lesson 4](#lesson-4)
+    - [Welcome to the CSS syntax problem set!](#welcome-to-the-css-syntax-problem-set)
+    - [Style an Image](#style-an-image)
 
 ## Lesson 1
 
@@ -329,7 +343,7 @@ IMAGES! Images on the web are awesome. Time to make one.
 For this exercise, you'll be linking an image in your Workspace. I'll give you the URL of an image and it will be your
 job to make it display.
 
-An image is made with an <img> element. It looks like so:
+An image is made with an `<img>` element. It looks like so:
 
 ```html
 <img src="http://somewebsite.com/image.jpg" alt="short description">
@@ -371,7 +385,7 @@ For this exercise, you need to edit index.html so that the caption displays belo
 I want you to:
 
 - Create a `<figure>` element
-- Add an `<img>` element whose src attribute points to the provided image (look in the Workspace's sidebar for - the "redwoods_state_park.jpg" image!)
+- Add an `<img>` element whose src attribute points to the provided image (look in the Workspaces sidebar for - the "redwoods_state_park.jpg" image!)
 - Add an alt attribute to the image
 - Add a `<figcaption>` element with the text for the image's caption
 
@@ -419,3 +433,229 @@ Hint: If you get stuck, I recommend checking out the figure element on MDN.
 
 </html>
 ```
+
+## Lesson 3
+
+### CSS or HTML?
+
+Consider the following image showing three different web pages:
+
+![images](images/16.png)
+
+### CSS Rulesets
+
+**Selector**:
+
+![images](images/17.png)
+
+**Declaration**:
+
+![images](images/18.png)
+
+```css
+h1 {
+    /* property: value; */
+    color: green;
+}
+
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello, world!</title>
+        <style>
+            p {
+                color: blue;
+            }
+            h1 {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello, world!</h1>
+        <p>Are you ready for your first challenge?</p>
+        <p>Let's add some style to this webpage!</p>
+    </body>
+</html>
+```
+
+### Comments
+
+Let's take a quick diversion to cover something useful: code comments.
+
+A comment is a human-readable message inside code. Comments are usually surrounded by or preceded by special characters that instruct computers to completely ignore whatever text is inside the comment. Comments are great because they allow you, the developer, to leave clarifying messages and instructions for other developers (as well as your future self!). Every programming language gives you the ability to write comments.
+
+Comments are also useful when you're testing your code. Rather than deleting potentially useful chunks of code, you can comment them out, getting the same effect without the risk of accidentally losing work!
+
+**CSS Comments**:
+
+You saw a CSS comment in the code from your previous quiz:
+
+```css
+p {
+    color: blue;
+}        
+/* add CSS here */
+h1 {
+    color: red;
+}
+```
+
+The line `/* add CSS here */` is a comment. CSS comments are surrounded by an opening `/* and a closing */`. You must use both. The comment made it clear to you where you needed to add your code and it did not affect the style of the page in any way.
+
+**HTML Comments**:
+
+You can write comments in HTML too! Here's how they look.
+
+```html
+<!-- This is a comment -->
+<div class="example">Words, words, words.</div>
+You must surround your HTML comments with a starting <!-- and a closing -->.
+```
+
+### Tag Selectors
+
+Just like you saw in the previous video, consider a web page with multiple paragraph tags. If we write a CSS rulesets use a p selector, which paragraph(s) would be affected by the style?
+
+```css
+p {
+  background-colors: pink;
+}
+```
+
+**Solution**: `all paragraphs`
+
+### Attributes and Selectors
+
+`Tag` **Selector**:
+
+```css
+h1 {
+  color: green;
+}
+```
+
+`class` **Attribute Selector**:
+
+```css
+.book-summary {
+  color: blue;
+}
+```
+
+`id` **attribute selector**:
+
+```css
+#site-description {
+  color: red;
+}
+```
+
+### Using Selectors
+
+Classes are easily the most useful and versatile type of selectors that you can use. For this exercise, consider the given CSS statement, which uses a class selector for the class right and changes the value of the text-align property to right:
+
+```css
+.right {
+  text-align: right;
+}
+```
+
+- [X] `<div class="right"> .. </div>`
+- [X] `<div class="left highlight right"> .. </div>`
+
+### Developer tools on different browsers
+
+Did you know, every modern web browser includes its own set of developer tools?
+
+If you didn't, that's okay. Developer tools aren't always the easiest thing to find in your browser. So, we've decided to help you out by creating this guide to developer tools!
+
+Instructions
+
+- Google Chrome
+- Mozilla Firefox
+- Internet Explorer
+- Microsoft Edge
+- Safari
+- Opera
+- Google Chrome
+
+The **Chrome DevTools** are a set of web authoring and debugging tools built into Google Chrome. Use the DevTools to iterate, debug and profile your site. Learn more about Chrome DevTools here.
+
+To open Chrome DevTools, either right-click on any page element and select Inspect or open the Chrome settings menu in the top-right corner of your browser window and select More `Tools > Developer Tools`. Alternatively, you can use the shortcuts:
+
+- `Command + Option + i (Mac)`
+- `Ctrl + Shift + i (Windows/Linux)`.
+
+**Mozilla Firefox**:
+
+Firefox Developer Tools allow you to examine, edit, and debug HTML, CSS, and JavaScript on the desktop and on mobile. Also, you can download a version of of Firefox called Firefox Developer Edition that is tailored for developers, featuring the latest Firefox features and experimental developer tools. Learn more about Mozilla Firefox DevTools here.
+
+To open Firefox Developer Tools, either right-click on any page element and select Inspect Element or open the Firefox settings menu in the top-right corner of your browser window and select Developer. Alternatively, you can use the shortcuts:
+
+- `Command + Option + i (Mac)`
+- `Ctrl + Shift + i (Windows/Linux)`.
+
+[Full Description](https://classroom.udacity.com/courses/ud001/lessons/7473321627/concepts/74478058180923)
+
+### CSS Units
+
+![images](images/19.png)
+
+
+### CSS Colors
+
+**RGB**:
+
+```css
+/* magenta color*/
+p {
+    /* rgb(red, green, blue) */
+    background-color: rgb(255, 0, 255)
+}
+```
+
+**HexValue**:
+
+```css
+/* blue color */
+div {
+    /* #0000ff */
+    background-color: #0000ff;
+}
+```
+
+### Identifying Color
+
+Standard `blue color`
+
+```css
+div {
+    /* all are blue */
+    color: blue;
+    color: rgb(0,0,255);
+    color: #0000ff;
+    color: #00f;
+}
+```
+
+## Lesson 4
+
+### Welcome to the CSS syntax problem set!
+
+The purpose of this problem set is to get you familiar with the CSS syntax and practice using different CSS properties. As you go through each exercise, recall the things you learned in the previous lesson. If you get stuck, remember that you can use references and developer tools to help you out.
+
+After you've completed the problem set, you should feel more confident when adding style to your webpages and you'll be ready to learn new techniques to improve your front-end web development process.
+
+**CSS References**:
+
+- Mozilla Developer Network - [CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+- css-tricks.com - [CSS Almanac](https://css-tricks.com/almanac/)
+
+### Style an Image
+
+`border`, `cursor`, `box-shadow`
+
+Play with cursor: <https://www.w3schools.com/cssref/playit.asp?filename=playcss_cursor&preval=alias>
