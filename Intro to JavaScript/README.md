@@ -8,6 +8,9 @@ Learn the fundamentals of JavaScript syntax. Explore JavaScript fundamentals by 
     - [The JavaScript Console](#the-javascript-console)
     - [console.log](#consolelog)
     - [JavaScript Demo](#javascript-demo)
+  - [Data Types and Variables](#data-types-and-variables)
+    - [Numbers](#numbers)
+    - [Comments](#comments)
 
 ## LESSON 1 (What is JavaScript?)
 
@@ -96,3 +99,117 @@ document.body.addEventListener('click', function () {
 If you’re confused because nothing happened. Don’t worry. Click somewhere on the page to see the effect. You can refresh the page to return the page its original state.
 
 Add image on the page.
+
+## Data Types and Variables
+
+Learn to represent real-world data using JavaScript variables, and distinguish between the different data types in the language.
+
+### Numbers
+
+Defining a number in JavaScript is actually pretty simple. The Number data type includes any positive or negative integer, as well as decimals. Entering a number into the console will return it right back to you.
+
+```js
+3 
+// Returns: 3
+```
+
+There, you did it.
+
+**Arithmetic operations**:
+
+You can also perform calculations with numbers pretty easily. Basically type out an expression the way you would type it in a calculator.
+
+```js
+3 + 2.1
+// Returns: 5.1
+```
+
+**Comparing numbers**:
+
+What about comparing numbers? Can you do that? Well of course you can!
+
+Just like in mathematics, you can compare two numbers to see if one’s greater than, less than, or equal to the other.
+
+```js
+5 > 10
+```
+
+Returns: false
+
+```js
+5 < 10
+```
+
+Returns: true
+
+```js
+5 == 10
+```
+
+Returns: false
+
+Comparisons between numbers will either evaluate to true or false. Here are some more examples, so you can try it out!
+
+| Operator | Meaning                  |
+| :------- | :----------------------- |
+| <        | Less than                |
+| >        | Greater than             |
+| <=       | Less than or Equal to    |
+| >=       | Greater than or Equal to |
+| ==       | Equal to                 |
+| !=       | Not Equal to             |
+
+```js
+// number
+console.log(3);
+
+// arithmetic operators
+console.log(3 + 2.51);
+console.log(3 - 1.5);
+console.log(2 + 10 - 19 + 4 - 90 + 1);
+console.log(-20 + -19 - (-10) - (-1) + 24);
+console.log((10/5) * 4 - 20);
+console.log(4096 % 12);
+
+// comparison operators
+console.log(43 > 47);
+console.log(3 != 0);
+console.log(3 == 4);
+console.log(3 <= 4);
+```
+
+**Output**:
+
+```js
+3
+5.51
+1.5
+-92
+-4
+-12
+4
+false
+true
+false
+true
+```
+
+### Comments
+
+`// You're about to take your first programming quiz!`
+
+Before you move onto the quiz, we want to talk about something you'll see quite often throughout this course: **comments**!
+
+You can use **comments** to help explain your code and make things clearer. In JavaScript, comments are marked with a double forward-slash `//`. Anything written on the same line after the `//` will not be executed or displayed. To have the comment span multiple lines, mark the start of your comment with a forward-slash and star, and then enclose your comment inside a star and forward-slash `/* … */`.
+
+```js
+// this is a single-line comment
+
+/*
+this is
+a multi-line
+comment
+*/
+```
+
+Some of the quizzes in this course might include comments that give you hints or instructions to complete the quiz. Comments are often used to clarify and document non-obvious code. It's good practice to include code comments to improve code readability.
