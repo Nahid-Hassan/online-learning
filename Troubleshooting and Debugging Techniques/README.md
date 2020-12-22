@@ -305,7 +305,7 @@ Binary Search: Search a sorted array by repeatedly dividing the search interval 
 
 ### QwikLabs: Debugging Python Scripts
 
-```
+```console
 > sdt-inc:~ nahid$ chmod 600 ~/Downloads/qwikLABS-L2382-20735766.pem
 
 > sdt-inc:~ nahid$ ssh -i ~/Downloads/qwikLABS-L2382-20735766.pem student-03-9d3e97cfa775@35.184.0.217
@@ -594,7 +594,7 @@ What might cause a single application to slow down an entire system? (Check all 
 
 In your role as an IT specialist or systems' administrator, you'll likely need to write scripts to automate tasks. A piece of code may start as a simple script that does a single thing, but end up growing into a complex program that handles many different tasks, and no matter the size and complexity of our code, we usually want it to perform well.
 
-`One important thing to keep in mind though is that we should always start by writing clear code that does what it should and only try to make it faster if we realize that it's not fast enough.` 
+`One important thing to keep in mind though is that we should always start by writing clear code that does what it should and only try to make it faster if we realize that it's not fast enough.`
 
 `If it takes you 10 minutes to write a script that will run in five seconds, and 20 minutes to write a script that will do the same but takes three seconds, does it make a difference? It all depends on how often you run the script. If you run it once a day, the two seconds deference definitely won't justify the additional 10 minutes of work. But if you're going to run the same script for the 500 computers on your network, that small difference means it will take 15 less minutes to run the whole script. So overall, you're gaining time.`
 
@@ -725,7 +725,6 @@ Check out the following links for more information:
 Visit: <https://realpython.com/python-concurrency/>
 
 Visit: <https://hackernoon.com/threaded-asynchronous-magic-and-how-to-wield-it-bba9ed602c32>
-
 
 <!-- urls and file paths -->
 
