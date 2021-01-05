@@ -324,8 +324,10 @@ When Device Pixels >= 5800px
 
 ![media-query](static-files/compare-css-media-query3.png)
 
-
 <!-- link/urls and files path -->
 [intro]: https://youtu.be/7DJLa4owtIU
 [bs]: https://www.browserstack.com/
 [dpr]: https://video.udacity-data.com/topher/2018/September/5bae86f9_screen-shot-2018-09-28-at-12.53.00-pm/screen-shot-2018-09-28-at-12.53.00-pm.png
+
+
+jls fsldfj sldkfj lsdkjfskdljflskdj flsd

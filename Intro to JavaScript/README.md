@@ -11,6 +11,9 @@ Learn the fundamentals of JavaScript syntax. Explore JavaScript fundamentals by 
   - [Data Types and Variables](#data-types-and-variables)
     - [Numbers](#numbers)
     - [Comments](#comments)
+    - [String Concatenation](#string-concatenation)
+    - [Variable](#variable)
+    - [Converting Celsius to Fahrenheit](#converting-celsius-to-fahrenheit)
 
 ## LESSON 1 (What is JavaScript?)
 
@@ -213,3 +216,129 @@ comment
 ```
 
 Some of the quizzes in this course might include comments that give you hints or instructions to complete the quiz. Comments are often used to clarify and document non-obvious code. It's good practice to include code comments to improve code readability.
+
+### String Concatenation
+
+Strings are a collection of characters enclosed inside double or single quotes. You can use strings to represent data like sentences, names, addresses, and more. Did you know you can even add strings together? In JavaScript, this is called concatenating. Concatenating two strings together is actually pretty simple!
+
+```js
+"Hello," + " New York City"
+Returns: "Hello, New York City"
+```
+
+You might have thought that an error would happen. But, remember that strings can be any collection of characters that are surrounded by quotation marks. The + 5*10 are just characters inside the quotation marks, so the interpreter will assume the whole object is a string, and output the result as a string!
+
+```js
+> "Hello" + "World"
+"HelloWorld"
+> "Hello + 5*10"
+"Hello + 5*10" // string is a collection of characters.
+```
+
+You've just discovered some peculiar behavior in JavaScript. It’s called implicit type coercion and it's a feature of JavaScript. JavaScript multiplies the 5*10 to become 50 and then changes the number 50 into the string "50", so you're adding together the same data type. This then gets combined with the string "Hello". You'll learn more about why this happens later in this lesson.
+
+```js
+> "Hello" + 5 * 10
+"Hello50"
+```
+
+### Variable
+
+With variables, you no longer need to work with one-time-use data.
+
+At the beginning of this course, you declared the value of a string, but you didn't have a way to access or reuse the string later.
+
+```js
+"Hello"; // Here's a String "Hello"
+"Hello" + " World"; // Here's a new String (also with the value "Hello") concatenated with " World"
+```
+
+Storing the value of a string in a variable is like packing it away for later use.
+
+```js
+var greeting = "Hello";
+```
+
+Now, if you want to use "Hello" in a variety of sentences, you don't need to duplicate "Hello" strings. You can just reuse the greeting variable.
+
+```js
+greeting + " World!";
+```
+
+> Returns: Hello World!
+
+```js
+greeting + " Mike!";
+```
+
+> Returns: Hello Mike!
+
+You can also change the start of the greeting by reassigning a new string value to the variable greeting.
+
+```js
+greeting = "Hola";
+greeting + " World!";
+```
+
+> Returns: Hola World!
+
+```js
+greeting + " Mike!";
+```
+
+> Returns: Hola Mike!
+
+**Naming conventions**:
+
+When you create a variable, you write the name of the variable using camelCase (the first word is lowercase, and all following words are uppercase). Also try to use a variable name that accurately, but succinctly describes what the data is about.
+
+```js
+var totalAfterTax = 53.03; // uses camelCase if the variable name is multiple words
+var tip = 8; // uses lowercase if the variable name is one word
+```
+
+Not using camelCase for your variables names is not going to necessarily break anything in JavaScript. But there are recommended style guides used in all programming languages that help keep code consistent, clean, and easy-to-read. This is especially important when working on larger projects that will be accessed by multiple developers.
+
+You can read more about Google's JavaScript StyleGuide [here](https://google.github.io/styleguide/jsguide.html).
+
+```js
+var name = 'Joe';
+var age = 4;
+age = age + 1;
+console.log(age);
+// 5
+```
+
+### Converting Celsius to Fahrenheit
+
+```js
+/*
+ * Programming Quiz: Converting Tempatures (2-2)
+ *
+ * The Celsius-to-Fahrenheit formula:
+ *
+ *    F = C x 1.8 + 32
+ *
+ * 1. Set the fahrenheit variable to the correct value using the celsius variable and the forumla above
+ * 2. Log the fahrenheit variable to the console
+ *
+ */
+ 
+/*
+ * QUIZ REQUIREMENTS
+ * 1. Your code should have a variable `celsius`
+ * 2. You code should have a variable `fahrenheit`
+ * 3. Your variable `celsius` should equal `12`
+ * 4. Your variable `fahrenheit` should produce the output equal `53.6`
+ * 5. Your variable `fahrenheit` declaration should use the `celsius` variable
+ * 6. Your variable `fahrenheit` should have the correct formula
+ * 7. Your code should log the `fahrenheit` variable
+ * 8. Your code should not be empty
+ */
+ 
+
+var celsius = 12;
+var fahrenheit = (celsius * 1.8) + 32;/* convert celsius to fahrenheit here */
+
+console.log(fahrenheit);
+```
