@@ -3,4 +3,4 @@ if __name__ == "__main__":
     s1 = set(map(int, input().strip().split()))
     b = int(input())
     s2 = set(map(int, input().strip().split()))
-    print(len(s1.difference(s2)))
+    print(len(s1.intersection(s2)))
