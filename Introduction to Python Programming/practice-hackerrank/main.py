@@ -1,6 +1,17 @@
 if __name__ == "__main__":
-    a = int(input())
-    s1 = set(map(int, input().strip().split()))
-    b = int(input())
-    s2 = set(map(int, input().strip().split()))
-    print(len(s1.difference(s2)))
+    _ = int(input())
+    s1 = set(map(int, input().split()))
+
+    for _ in range(int(input())):
+        command, _ = input().split()
+        s2 = set(map(int, input().split()))
+        if(command == "intersection_update"):
+            s1.intersection_update(s2)
+        elif(command == "update"):
+            s1.update(s2)
+        elif(command == "symmetric_difference_update"):
+            s1.symmetric_difference_update(s2)
+        elif(command == "difference_update"):
+            s1.difference_update(s2)
+
+    print(sum(s1))
