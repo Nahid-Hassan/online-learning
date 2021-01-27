@@ -91,7 +91,7 @@ Styling elements on the page is great, but you could also do that by just modify
 
 ```js
 document.body.addEventListener('click', function () {
-     var myParent = document.getElementsByTagName("h1")[0]; 
+     var myParent = document.getElementsByTagName("h1")[0];
      var myImage = document.createElement("img");
      myImage.src = 'https://thecatapi.com/api/images/get?format=src&type=gif';
      myParent.appendChild(myImage);
@@ -112,7 +112,7 @@ Learn to represent real-world data using JavaScript variables, and distinguish b
 Defining a number in JavaScript is actually pretty simple. The Number data type includes any positive or negative integer, as well as decimals. Entering a number into the console will return it right back to you.
 
 ```js
-3 
+3
 // Returns: 3
 ```
 
@@ -313,17 +313,17 @@ console.log(age);
 
 ```js
 /*
- * Programming Quiz: Converting Tempatures (2-2)
+ * Programming Quiz: Converting Temperatures (2-2)
  *
  * The Celsius-to-Fahrenheit formula:
  *
  *    F = C x 1.8 + 32
  *
- * 1. Set the fahrenheit variable to the correct value using the celsius variable and the forumla above
+ * 1. Set the fahrenheit variable to the correct value using the celsius variable and the formula above
  * 2. Log the fahrenheit variable to the console
  *
  */
- 
+
 /*
  * QUIZ REQUIREMENTS
  * 1. Your code should have a variable `celsius`
@@ -335,10 +335,11 @@ console.log(age);
  * 7. Your code should log the `fahrenheit` variable
  * 8. Your code should not be empty
  */
- 
+
 
 var celsius = 12;
 var fahrenheit = (celsius * 1.8) + 32;/* convert celsius to fahrenheit here */
 
 console.log(fahrenheit);
 ```
+
